@@ -1,0 +1,2282 @@
+[
+  {
+    "lineCode": "WARP-YOG",
+    "stops": [
+      {
+        "station": "Y",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "O",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      },
+      {
+        "station": "G",
+        "arrival": "08:20:20",
+        "departure": "08:30:20"
+      },
+      {
+        "station": "B",
+        "arrival": "08:30:30",
+        "departure": "08:40:30"
+      },
+      {
+        "station": "A",
+        "arrival": "08:40:40",
+        "departure": "08:50:40"
+      },
+      {
+        "station": "D",
+        "arrival": "08:50:50",
+        "departure": "09:00:50"
+      },
+      {
+        "station": "J",
+        "arrival": "09:01:00",
+        "departure": "09:11:00"
+      },
+      {
+        "station": "T",
+        "arrival": "09:11:10",
+        "departure": "09:21:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-YOG-REV",
+    "stops": [
+      {
+        "station": "T",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "J",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      },
+      {
+        "station": "D",
+        "arrival": "08:20:20",
+        "departure": "08:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "08:30:30",
+        "departure": "08:40:30"
+      },
+      {
+        "station": "B",
+        "arrival": "08:40:40",
+        "departure": "08:50:40"
+      },
+      {
+        "station": "G",
+        "arrival": "08:50:50",
+        "departure": "09:00:50"
+      },
+      {
+        "station": "O",
+        "arrival": "09:01:00",
+        "departure": "09:11:00"
+      },
+      {
+        "station": "Y",
+        "arrival": "09:11:10",
+        "departure": "09:21:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-YOG",
+    "stops": [
+      {
+        "station": "T",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "J",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      },
+      {
+        "station": "D",
+        "arrival": "11:20:20",
+        "departure": "11:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "11:30:30",
+        "departure": "11:40:30"
+      },
+      {
+        "station": "B",
+        "arrival": "11:40:40",
+        "departure": "11:50:40"
+      },
+      {
+        "station": "G",
+        "arrival": "11:50:50",
+        "departure": "12:00:50"
+      },
+      {
+        "station": "O",
+        "arrival": "12:01:00",
+        "departure": "12:11:00"
+      },
+      {
+        "station": "Y",
+        "arrival": "12:11:10",
+        "departure": "12:21:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-YOG-REV",
+    "stops": [
+      {
+        "station": "Y",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "O",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      },
+      {
+        "station": "G",
+        "arrival": "11:20:20",
+        "departure": "11:30:20"
+      },
+      {
+        "station": "B",
+        "arrival": "11:30:30",
+        "departure": "11:40:30"
+      },
+      {
+        "station": "A",
+        "arrival": "11:40:40",
+        "departure": "11:50:40"
+      },
+      {
+        "station": "D",
+        "arrival": "11:50:50",
+        "departure": "12:00:50"
+      },
+      {
+        "station": "J",
+        "arrival": "12:01:00",
+        "departure": "12:11:00"
+      },
+      {
+        "station": "T",
+        "arrival": "12:11:10",
+        "departure": "12:21:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-YOG",
+    "stops": [
+      {
+        "station": "Y",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "O",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      },
+      {
+        "station": "G",
+        "arrival": "14:20:20",
+        "departure": "14:30:20"
+      },
+      {
+        "station": "B",
+        "arrival": "14:30:30",
+        "departure": "14:40:30"
+      },
+      {
+        "station": "A",
+        "arrival": "14:40:40",
+        "departure": "14:50:40"
+      },
+      {
+        "station": "D",
+        "arrival": "14:50:50",
+        "departure": "15:00:50"
+      },
+      {
+        "station": "J",
+        "arrival": "15:01:00",
+        "departure": "15:11:00"
+      },
+      {
+        "station": "T",
+        "arrival": "15:11:10",
+        "departure": "15:21:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-YOG-REV",
+    "stops": [
+      {
+        "station": "T",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "J",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      },
+      {
+        "station": "D",
+        "arrival": "14:20:20",
+        "departure": "14:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "14:30:30",
+        "departure": "14:40:30"
+      },
+      {
+        "station": "B",
+        "arrival": "14:40:40",
+        "departure": "14:50:40"
+      },
+      {
+        "station": "G",
+        "arrival": "14:50:50",
+        "departure": "15:00:50"
+      },
+      {
+        "station": "O",
+        "arrival": "15:01:00",
+        "departure": "15:11:00"
+      },
+      {
+        "station": "Y",
+        "arrival": "15:11:10",
+        "departure": "15:21:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-YOG",
+    "stops": [
+      {
+        "station": "T",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "J",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      },
+      {
+        "station": "D",
+        "arrival": "17:20:20",
+        "departure": "17:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "17:30:30",
+        "departure": "17:40:30"
+      },
+      {
+        "station": "B",
+        "arrival": "17:40:40",
+        "departure": "17:50:40"
+      },
+      {
+        "station": "G",
+        "arrival": "17:50:50",
+        "departure": "18:00:50"
+      },
+      {
+        "station": "O",
+        "arrival": "18:01:00",
+        "departure": "18:11:00"
+      },
+      {
+        "station": "Y",
+        "arrival": "18:11:10",
+        "departure": "18:21:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-YOG-REV",
+    "stops": [
+      {
+        "station": "Y",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "O",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      },
+      {
+        "station": "G",
+        "arrival": "17:20:20",
+        "departure": "17:30:20"
+      },
+      {
+        "station": "B",
+        "arrival": "17:30:30",
+        "departure": "17:40:30"
+      },
+      {
+        "station": "A",
+        "arrival": "17:40:40",
+        "departure": "17:50:40"
+      },
+      {
+        "station": "D",
+        "arrival": "17:50:50",
+        "departure": "18:00:50"
+      },
+      {
+        "station": "J",
+        "arrival": "18:01:00",
+        "departure": "18:11:00"
+      },
+      {
+        "station": "T",
+        "arrival": "18:11:10",
+        "departure": "18:21:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-YOG",
+    "stops": [
+      {
+        "station": "Y",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "O",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      },
+      {
+        "station": "G",
+        "arrival": "20:20:20",
+        "departure": "20:30:20"
+      },
+      {
+        "station": "B",
+        "arrival": "20:30:30",
+        "departure": "20:40:30"
+      },
+      {
+        "station": "A",
+        "arrival": "20:40:40",
+        "departure": "20:50:40"
+      },
+      {
+        "station": "D",
+        "arrival": "20:50:50",
+        "departure": "21:00:50"
+      },
+      {
+        "station": "J",
+        "arrival": "21:01:00",
+        "departure": "21:11:00"
+      },
+      {
+        "station": "T",
+        "arrival": "21:11:10",
+        "departure": "21:21:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-YOG-REV",
+    "stops": [
+      {
+        "station": "T",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "J",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      },
+      {
+        "station": "D",
+        "arrival": "20:20:20",
+        "departure": "20:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "20:30:30",
+        "departure": "20:40:30"
+      },
+      {
+        "station": "B",
+        "arrival": "20:40:40",
+        "departure": "20:50:40"
+      },
+      {
+        "station": "G",
+        "arrival": "20:50:50",
+        "departure": "21:00:50"
+      },
+      {
+        "station": "O",
+        "arrival": "21:01:00",
+        "departure": "21:11:00"
+      },
+      {
+        "station": "Y",
+        "arrival": "21:11:10",
+        "departure": "21:21:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-YOG",
+    "stops": [
+      {
+        "station": "T",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "J",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      },
+      {
+        "station": "D",
+        "arrival": "23:20:20",
+        "departure": "23:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "23:30:30",
+        "departure": "23:40:30"
+      },
+      {
+        "station": "B",
+        "arrival": "23:40:40",
+        "departure": "23:50:40"
+      },
+      {
+        "station": "G",
+        "arrival": "23:50:50",
+        "departure": "00:00:50"
+      },
+      {
+        "station": "O",
+        "arrival": "00:01:00",
+        "departure": "00:11:00"
+      },
+      {
+        "station": "Y",
+        "arrival": "00:11:10",
+        "departure": "00:21:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-YOG-REV",
+    "stops": [
+      {
+        "station": "Y",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "O",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      },
+      {
+        "station": "G",
+        "arrival": "23:20:20",
+        "departure": "23:30:20"
+      },
+      {
+        "station": "B",
+        "arrival": "23:30:30",
+        "departure": "23:40:30"
+      },
+      {
+        "station": "A",
+        "arrival": "23:40:40",
+        "departure": "23:50:40"
+      },
+      {
+        "station": "D",
+        "arrival": "23:50:50",
+        "departure": "00:00:50"
+      },
+      {
+        "station": "J",
+        "arrival": "00:01:00",
+        "departure": "00:11:00"
+      },
+      {
+        "station": "T",
+        "arrival": "00:11:10",
+        "departure": "00:21:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-XNG",
+    "stops": [
+      {
+        "station": "X",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "N",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      },
+      {
+        "station": "G",
+        "arrival": "08:20:20",
+        "departure": "08:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-XNG-REV",
+    "stops": [
+      {
+        "station": "G",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "N",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      },
+      {
+        "station": "X",
+        "arrival": "08:20:20",
+        "departure": "08:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-XNG",
+    "stops": [
+      {
+        "station": "G",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "N",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      },
+      {
+        "station": "X",
+        "arrival": "11:20:20",
+        "departure": "11:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-XNG-REV",
+    "stops": [
+      {
+        "station": "X",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "N",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      },
+      {
+        "station": "G",
+        "arrival": "11:20:20",
+        "departure": "11:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-XNG",
+    "stops": [
+      {
+        "station": "X",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "N",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      },
+      {
+        "station": "G",
+        "arrival": "14:20:20",
+        "departure": "14:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-XNG-REV",
+    "stops": [
+      {
+        "station": "G",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "N",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      },
+      {
+        "station": "X",
+        "arrival": "14:20:20",
+        "departure": "14:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-XNG",
+    "stops": [
+      {
+        "station": "G",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "N",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      },
+      {
+        "station": "X",
+        "arrival": "17:20:20",
+        "departure": "17:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-XNG-REV",
+    "stops": [
+      {
+        "station": "X",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "N",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      },
+      {
+        "station": "G",
+        "arrival": "17:20:20",
+        "departure": "17:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-XNG",
+    "stops": [
+      {
+        "station": "X",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "N",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      },
+      {
+        "station": "G",
+        "arrival": "20:20:20",
+        "departure": "20:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-XNG-REV",
+    "stops": [
+      {
+        "station": "G",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "N",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      },
+      {
+        "station": "X",
+        "arrival": "20:20:20",
+        "departure": "20:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-XNG",
+    "stops": [
+      {
+        "station": "G",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "N",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      },
+      {
+        "station": "X",
+        "arrival": "23:20:20",
+        "departure": "23:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-XNG-REV",
+    "stops": [
+      {
+        "station": "X",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "N",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      },
+      {
+        "station": "G",
+        "arrival": "23:20:20",
+        "departure": "23:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-WMF",
+    "stops": [
+      {
+        "station": "W",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "M",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      },
+      {
+        "station": "F",
+        "arrival": "08:20:20",
+        "departure": "08:30:20"
+      },
+      {
+        "station": "B",
+        "arrival": "08:30:30",
+        "departure": "08:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-WMF-REV",
+    "stops": [
+      {
+        "station": "B",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "F",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      },
+      {
+        "station": "M",
+        "arrival": "08:20:20",
+        "departure": "08:30:20"
+      },
+      {
+        "station": "W",
+        "arrival": "08:30:30",
+        "departure": "08:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-WMF",
+    "stops": [
+      {
+        "station": "B",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "F",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      },
+      {
+        "station": "M",
+        "arrival": "11:20:20",
+        "departure": "11:30:20"
+      },
+      {
+        "station": "W",
+        "arrival": "11:30:30",
+        "departure": "11:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-WMF-REV",
+    "stops": [
+      {
+        "station": "W",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "M",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      },
+      {
+        "station": "F",
+        "arrival": "11:20:20",
+        "departure": "11:30:20"
+      },
+      {
+        "station": "B",
+        "arrival": "11:30:30",
+        "departure": "11:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-WMF",
+    "stops": [
+      {
+        "station": "W",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "M",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      },
+      {
+        "station": "F",
+        "arrival": "14:20:20",
+        "departure": "14:30:20"
+      },
+      {
+        "station": "B",
+        "arrival": "14:30:30",
+        "departure": "14:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-WMF-REV",
+    "stops": [
+      {
+        "station": "B",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "F",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      },
+      {
+        "station": "M",
+        "arrival": "14:20:20",
+        "departure": "14:30:20"
+      },
+      {
+        "station": "W",
+        "arrival": "14:30:30",
+        "departure": "14:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-WMF",
+    "stops": [
+      {
+        "station": "B",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "F",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      },
+      {
+        "station": "M",
+        "arrival": "17:20:20",
+        "departure": "17:30:20"
+      },
+      {
+        "station": "W",
+        "arrival": "17:30:30",
+        "departure": "17:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-WMF-REV",
+    "stops": [
+      {
+        "station": "W",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "M",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      },
+      {
+        "station": "F",
+        "arrival": "17:20:20",
+        "departure": "17:30:20"
+      },
+      {
+        "station": "B",
+        "arrival": "17:30:30",
+        "departure": "17:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-WMF",
+    "stops": [
+      {
+        "station": "W",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "M",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      },
+      {
+        "station": "F",
+        "arrival": "20:20:20",
+        "departure": "20:30:20"
+      },
+      {
+        "station": "B",
+        "arrival": "20:30:30",
+        "departure": "20:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-WMF-REV",
+    "stops": [
+      {
+        "station": "B",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "F",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      },
+      {
+        "station": "M",
+        "arrival": "20:20:20",
+        "departure": "20:30:20"
+      },
+      {
+        "station": "W",
+        "arrival": "20:30:30",
+        "departure": "20:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-WMF",
+    "stops": [
+      {
+        "station": "B",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "F",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      },
+      {
+        "station": "M",
+        "arrival": "23:20:20",
+        "departure": "23:30:20"
+      },
+      {
+        "station": "W",
+        "arrival": "23:30:30",
+        "departure": "23:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-WMF-REV",
+    "stops": [
+      {
+        "station": "W",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "M",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      },
+      {
+        "station": "F",
+        "arrival": "23:20:20",
+        "departure": "23:30:20"
+      },
+      {
+        "station": "B",
+        "arrival": "23:30:30",
+        "departure": "23:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-VLE",
+    "stops": [
+      {
+        "station": "V",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "L",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      },
+      {
+        "station": "E",
+        "arrival": "08:20:20",
+        "departure": "08:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "08:30:30",
+        "departure": "08:40:30"
+      },
+      {
+        "station": "C",
+        "arrival": "08:40:40",
+        "departure": "08:50:40"
+      },
+      {
+        "station": "H",
+        "arrival": "08:50:50",
+        "departure": "09:00:50"
+      },
+      {
+        "station": "Q",
+        "arrival": "09:01:00",
+        "departure": "09:11:00"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-VLE-REV",
+    "stops": [
+      {
+        "station": "Q",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "H",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      },
+      {
+        "station": "C",
+        "arrival": "08:20:20",
+        "departure": "08:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "08:30:30",
+        "departure": "08:40:30"
+      },
+      {
+        "station": "E",
+        "arrival": "08:40:40",
+        "departure": "08:50:40"
+      },
+      {
+        "station": "L",
+        "arrival": "08:50:50",
+        "departure": "09:00:50"
+      },
+      {
+        "station": "V",
+        "arrival": "09:01:00",
+        "departure": "09:11:00"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-VLE",
+    "stops": [
+      {
+        "station": "Q",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "H",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      },
+      {
+        "station": "C",
+        "arrival": "11:20:20",
+        "departure": "11:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "11:30:30",
+        "departure": "11:40:30"
+      },
+      {
+        "station": "E",
+        "arrival": "11:40:40",
+        "departure": "11:50:40"
+      },
+      {
+        "station": "L",
+        "arrival": "11:50:50",
+        "departure": "12:00:50"
+      },
+      {
+        "station": "V",
+        "arrival": "12:01:00",
+        "departure": "12:11:00"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-VLE-REV",
+    "stops": [
+      {
+        "station": "V",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "L",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      },
+      {
+        "station": "E",
+        "arrival": "11:20:20",
+        "departure": "11:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "11:30:30",
+        "departure": "11:40:30"
+      },
+      {
+        "station": "C",
+        "arrival": "11:40:40",
+        "departure": "11:50:40"
+      },
+      {
+        "station": "H",
+        "arrival": "11:50:50",
+        "departure": "12:00:50"
+      },
+      {
+        "station": "Q",
+        "arrival": "12:01:00",
+        "departure": "12:11:00"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-VLE",
+    "stops": [
+      {
+        "station": "V",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "L",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      },
+      {
+        "station": "E",
+        "arrival": "14:20:20",
+        "departure": "14:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "14:30:30",
+        "departure": "14:40:30"
+      },
+      {
+        "station": "C",
+        "arrival": "14:40:40",
+        "departure": "14:50:40"
+      },
+      {
+        "station": "H",
+        "arrival": "14:50:50",
+        "departure": "15:00:50"
+      },
+      {
+        "station": "Q",
+        "arrival": "15:01:00",
+        "departure": "15:11:00"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-VLE-REV",
+    "stops": [
+      {
+        "station": "Q",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "H",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      },
+      {
+        "station": "C",
+        "arrival": "14:20:20",
+        "departure": "14:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "14:30:30",
+        "departure": "14:40:30"
+      },
+      {
+        "station": "E",
+        "arrival": "14:40:40",
+        "departure": "14:50:40"
+      },
+      {
+        "station": "L",
+        "arrival": "14:50:50",
+        "departure": "15:00:50"
+      },
+      {
+        "station": "V",
+        "arrival": "15:01:00",
+        "departure": "15:11:00"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-VLE",
+    "stops": [
+      {
+        "station": "Q",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "H",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      },
+      {
+        "station": "C",
+        "arrival": "17:20:20",
+        "departure": "17:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "17:30:30",
+        "departure": "17:40:30"
+      },
+      {
+        "station": "E",
+        "arrival": "17:40:40",
+        "departure": "17:50:40"
+      },
+      {
+        "station": "L",
+        "arrival": "17:50:50",
+        "departure": "18:00:50"
+      },
+      {
+        "station": "V",
+        "arrival": "18:01:00",
+        "departure": "18:11:00"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-VLE-REV",
+    "stops": [
+      {
+        "station": "V",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "L",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      },
+      {
+        "station": "E",
+        "arrival": "17:20:20",
+        "departure": "17:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "17:30:30",
+        "departure": "17:40:30"
+      },
+      {
+        "station": "C",
+        "arrival": "17:40:40",
+        "departure": "17:50:40"
+      },
+      {
+        "station": "H",
+        "arrival": "17:50:50",
+        "departure": "18:00:50"
+      },
+      {
+        "station": "Q",
+        "arrival": "18:01:00",
+        "departure": "18:11:00"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-VLE",
+    "stops": [
+      {
+        "station": "V",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "L",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      },
+      {
+        "station": "E",
+        "arrival": "20:20:20",
+        "departure": "20:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "20:30:30",
+        "departure": "20:40:30"
+      },
+      {
+        "station": "C",
+        "arrival": "20:40:40",
+        "departure": "20:50:40"
+      },
+      {
+        "station": "H",
+        "arrival": "20:50:50",
+        "departure": "21:00:50"
+      },
+      {
+        "station": "Q",
+        "arrival": "21:01:00",
+        "departure": "21:11:00"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-VLE-REV",
+    "stops": [
+      {
+        "station": "Q",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "H",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      },
+      {
+        "station": "C",
+        "arrival": "20:20:20",
+        "departure": "20:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "20:30:30",
+        "departure": "20:40:30"
+      },
+      {
+        "station": "E",
+        "arrival": "20:40:40",
+        "departure": "20:50:40"
+      },
+      {
+        "station": "L",
+        "arrival": "20:50:50",
+        "departure": "21:00:50"
+      },
+      {
+        "station": "V",
+        "arrival": "21:01:00",
+        "departure": "21:11:00"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-VLE",
+    "stops": [
+      {
+        "station": "Q",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "H",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      },
+      {
+        "station": "C",
+        "arrival": "23:20:20",
+        "departure": "23:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "23:30:30",
+        "departure": "23:40:30"
+      },
+      {
+        "station": "E",
+        "arrival": "23:40:40",
+        "departure": "23:50:40"
+      },
+      {
+        "station": "L",
+        "arrival": "23:50:50",
+        "departure": "00:00:50"
+      },
+      {
+        "station": "V",
+        "arrival": "00:01:00",
+        "departure": "00:11:00"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-VLE-REV",
+    "stops": [
+      {
+        "station": "V",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "L",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      },
+      {
+        "station": "E",
+        "arrival": "23:20:20",
+        "departure": "23:30:20"
+      },
+      {
+        "station": "A",
+        "arrival": "23:30:30",
+        "departure": "23:40:30"
+      },
+      {
+        "station": "C",
+        "arrival": "23:40:40",
+        "departure": "23:50:40"
+      },
+      {
+        "station": "H",
+        "arrival": "23:50:50",
+        "departure": "00:00:50"
+      },
+      {
+        "station": "Q",
+        "arrival": "00:01:00",
+        "departure": "00:11:00"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-PH",
+    "stops": [
+      {
+        "station": "P",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "H",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-PH-REV",
+    "stops": [
+      {
+        "station": "H",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "P",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-PH",
+    "stops": [
+      {
+        "station": "H",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "P",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-PH-REV",
+    "stops": [
+      {
+        "station": "P",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "H",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-PH",
+    "stops": [
+      {
+        "station": "P",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "H",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-PH-REV",
+    "stops": [
+      {
+        "station": "H",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "P",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-PH",
+    "stops": [
+      {
+        "station": "H",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "P",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-PH-REV",
+    "stops": [
+      {
+        "station": "P",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "H",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-PH",
+    "stops": [
+      {
+        "station": "P",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "H",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-PH-REV",
+    "stops": [
+      {
+        "station": "H",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "P",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-PH",
+    "stops": [
+      {
+        "station": "H",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "P",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-PH-REV",
+    "stops": [
+      {
+        "station": "P",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "H",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-EKU",
+    "stops": [
+      {
+        "station": "E",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "K",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      },
+      {
+        "station": "U",
+        "arrival": "08:20:20",
+        "departure": "08:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-EKU-REV",
+    "stops": [
+      {
+        "station": "U",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "K",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      },
+      {
+        "station": "E",
+        "arrival": "08:20:20",
+        "departure": "08:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-EKU",
+    "stops": [
+      {
+        "station": "U",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "K",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      },
+      {
+        "station": "E",
+        "arrival": "11:20:20",
+        "departure": "11:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-EKU-REV",
+    "stops": [
+      {
+        "station": "E",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "K",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      },
+      {
+        "station": "U",
+        "arrival": "11:20:20",
+        "departure": "11:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-EKU",
+    "stops": [
+      {
+        "station": "E",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "K",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      },
+      {
+        "station": "U",
+        "arrival": "14:20:20",
+        "departure": "14:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-EKU-REV",
+    "stops": [
+      {
+        "station": "U",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "K",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      },
+      {
+        "station": "E",
+        "arrival": "14:20:20",
+        "departure": "14:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-EKU",
+    "stops": [
+      {
+        "station": "U",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "K",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      },
+      {
+        "station": "E",
+        "arrival": "17:20:20",
+        "departure": "17:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-EKU-REV",
+    "stops": [
+      {
+        "station": "E",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "K",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      },
+      {
+        "station": "U",
+        "arrival": "17:20:20",
+        "departure": "17:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-EKU",
+    "stops": [
+      {
+        "station": "E",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "K",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      },
+      {
+        "station": "U",
+        "arrival": "20:20:20",
+        "departure": "20:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-EKU-REV",
+    "stops": [
+      {
+        "station": "U",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "K",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      },
+      {
+        "station": "E",
+        "arrival": "20:20:20",
+        "departure": "20:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-EKU",
+    "stops": [
+      {
+        "station": "U",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "K",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      },
+      {
+        "station": "E",
+        "arrival": "23:20:20",
+        "departure": "23:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-EKU-REV",
+    "stops": [
+      {
+        "station": "E",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "K",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      },
+      {
+        "station": "U",
+        "arrival": "23:20:20",
+        "departure": "23:30:20"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-DIRS",
+    "stops": [
+      {
+        "station": "D",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "I",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      },
+      {
+        "station": "R",
+        "arrival": "08:20:20",
+        "departure": "08:30:20"
+      },
+      {
+        "station": "S",
+        "arrival": "08:30:30",
+        "departure": "08:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-DIRS-REV",
+    "stops": [
+      {
+        "station": "S",
+        "arrival": "08:00:00",
+        "departure": "08:10:00"
+      },
+      {
+        "station": "R",
+        "arrival": "08:10:10",
+        "departure": "08:20:10"
+      },
+      {
+        "station": "I",
+        "arrival": "08:20:20",
+        "departure": "08:30:20"
+      },
+      {
+        "station": "D",
+        "arrival": "08:30:30",
+        "departure": "08:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-DIRS",
+    "stops": [
+      {
+        "station": "S",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "R",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      },
+      {
+        "station": "I",
+        "arrival": "11:20:20",
+        "departure": "11:30:20"
+      },
+      {
+        "station": "D",
+        "arrival": "11:30:30",
+        "departure": "11:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-DIRS-REV",
+    "stops": [
+      {
+        "station": "D",
+        "arrival": "11:00:00",
+        "departure": "11:10:00"
+      },
+      {
+        "station": "I",
+        "arrival": "11:10:10",
+        "departure": "11:20:10"
+      },
+      {
+        "station": "R",
+        "arrival": "11:20:20",
+        "departure": "11:30:20"
+      },
+      {
+        "station": "S",
+        "arrival": "11:30:30",
+        "departure": "11:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-DIRS",
+    "stops": [
+      {
+        "station": "D",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "I",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      },
+      {
+        "station": "R",
+        "arrival": "14:20:20",
+        "departure": "14:30:20"
+      },
+      {
+        "station": "S",
+        "arrival": "14:30:30",
+        "departure": "14:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-DIRS-REV",
+    "stops": [
+      {
+        "station": "S",
+        "arrival": "14:00:00",
+        "departure": "14:10:00"
+      },
+      {
+        "station": "R",
+        "arrival": "14:10:10",
+        "departure": "14:20:10"
+      },
+      {
+        "station": "I",
+        "arrival": "14:20:20",
+        "departure": "14:30:20"
+      },
+      {
+        "station": "D",
+        "arrival": "14:30:30",
+        "departure": "14:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-DIRS",
+    "stops": [
+      {
+        "station": "S",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "R",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      },
+      {
+        "station": "I",
+        "arrival": "17:20:20",
+        "departure": "17:30:20"
+      },
+      {
+        "station": "D",
+        "arrival": "17:30:30",
+        "departure": "17:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-DIRS-REV",
+    "stops": [
+      {
+        "station": "D",
+        "arrival": "17:00:00",
+        "departure": "17:10:00"
+      },
+      {
+        "station": "I",
+        "arrival": "17:10:10",
+        "departure": "17:20:10"
+      },
+      {
+        "station": "R",
+        "arrival": "17:20:20",
+        "departure": "17:30:20"
+      },
+      {
+        "station": "S",
+        "arrival": "17:30:30",
+        "departure": "17:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-DIRS",
+    "stops": [
+      {
+        "station": "D",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "I",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      },
+      {
+        "station": "R",
+        "arrival": "20:20:20",
+        "departure": "20:30:20"
+      },
+      {
+        "station": "S",
+        "arrival": "20:30:30",
+        "departure": "20:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-DIRS-REV",
+    "stops": [
+      {
+        "station": "S",
+        "arrival": "20:00:00",
+        "departure": "20:10:00"
+      },
+      {
+        "station": "R",
+        "arrival": "20:10:10",
+        "departure": "20:20:10"
+      },
+      {
+        "station": "I",
+        "arrival": "20:20:20",
+        "departure": "20:30:20"
+      },
+      {
+        "station": "D",
+        "arrival": "20:30:30",
+        "departure": "20:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-DIRS",
+    "stops": [
+      {
+        "station": "S",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "R",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      },
+      {
+        "station": "I",
+        "arrival": "23:20:20",
+        "departure": "23:30:20"
+      },
+      {
+        "station": "D",
+        "arrival": "23:30:30",
+        "departure": "23:40:30"
+      }
+    ]
+  },
+  {
+    "lineCode": "WARP-DIRS-REV",
+    "stops": [
+      {
+        "station": "D",
+        "arrival": "23:00:00",
+        "departure": "23:10:00"
+      },
+      {
+        "station": "I",
+        "arrival": "23:10:10",
+        "departure": "23:20:10"
+      },
+      {
+        "station": "R",
+        "arrival": "23:20:20",
+        "departure": "23:30:20"
+      },
+      {
+        "station": "S",
+        "arrival": "23:30:30",
+        "departure": "23:40:30"
+      }
+    ]
+  }
+]
