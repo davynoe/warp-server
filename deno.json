@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run --watch main.ts",
+    "dev": "deno run --allow-read --allow-write --watch main.ts",
     "schedule": "deno run --allow-read --allow-write schedule_generator.ts",
     "train": "deno run --allow-read --allow-write train_generator.ts",
     "route": "deno run --allow-read --allow-write search_route.ts"

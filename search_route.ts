@@ -1,8 +1,8 @@
 import { Line, Route } from "./definitions.ts";
 const lines: Line[] = JSON.parse(Deno.readTextFileSync("lines.json"));
 
-const start = "K";
-const end = "J";
+const start = "X";
+const end = "K";
 
 function findRoutes(start: string, end: string): Route[] {
   // Create a map of stations to their connected lines
@@ -35,26 +35,41 @@ function findRoutes(start: string, end: string): Route[] {
     if (currentStation === end) {
       // Calculate route details
       const distinctLines = [...new Set(current.lines)];
-      const transferStations = current.stations.filter((station, index) => {
+      const transferStations = current.stations.filter((_station, index) => {
         if (index === 0 || index === current.stations.length - 1) return false;
         const prevLine = current.lines[index - 1];
         const nextLine = current.lines[index];
         return prevLine !== nextLine;
       });
 
-      // Check direction for each line and append -REV if needed
+      // Add start and end stations to transferStations for direction checking
+      const checkPoints = [
+        0,
+        ...transferStations.map((station) => current.stations.indexOf(station)),
+        current.stations.length - 1,
+      ];
+
+      // Determine direction for each line segment
       const directionalLines = distinctLines.map((lineCode) => {
         const line = lines.find((l) => l.code === lineCode)!;
-        const firstStationIndex = line.stations.indexOf(current.stations[0]);
-        const lastStationIndex = line.stations.indexOf(
-          current.stations[current.stations.length - 1]
-        );
+        // Find all segments of this line in the route
+        const segments = [];
+        for (let i = 0; i < checkPoints.length - 1; i++) {
+          const startIdx = checkPoints[i];
+          const endIdx = checkPoints[i + 1];
+          const segmentStations = current.stations.slice(startIdx, endIdx + 1);
+          const segmentLines = current.lines.slice(startIdx, endIdx);
 
-        // If we're traveling in reverse order (higher index to lower index)
-        if (firstStationIndex > lastStationIndex) {
-          return `${lineCode}-REV`;
+          if (segmentLines.includes(lineCode)) {
+            const lineStartIdx = line.stations.indexOf(segmentStations[0]);
+            const lineEndIdx = line.stations.indexOf(
+              segmentStations[segmentStations.length - 1]
+            );
+            const isForward = lineEndIdx > lineStartIdx;
+            segments.push(isForward ? lineCode : `${lineCode}-REV`);
+          }
         }
-        return lineCode;
+        return segments[0]; // Take the first segment's direction
       });
 
       const route: Route = {
