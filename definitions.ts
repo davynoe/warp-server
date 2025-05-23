@@ -22,7 +22,36 @@ export interface Train {
   line: string;
   economySeats: number;
   firstClassSeats: number;
+  status: "at station" | "in transit" | "stopped";
+  currentStation: District | "none";
 }
+
+type District =
+  | "A"
+  | "B"
+  | "C"
+  | "D"
+  | "E"
+  | "F"
+  | "G"
+  | "H"
+  | "I"
+  | "J"
+  | "K"
+  | "L"
+  | "M"
+  | "N"
+  | "O"
+  | "P"
+  | "Q"
+  | "R"
+  | "S"
+  | "T"
+  | "U"
+  | "V"
+  | "W"
+  | "X"
+  | "Y";
 
 export interface Route {
   stations: string[];

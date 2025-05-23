@@ -1,10 +1,7 @@
 import { Line, Route } from "./definitions.ts";
 const lines: Line[] = JSON.parse(Deno.readTextFileSync("lines.json"));
 
-const start = "X";
-const end = "K";
-
-function findRoutes(start: string, end: string): Route[] {
+export function findRoutes(start: string, end: string): Route[] {
   // Create a map of stations to their connected lines
   const stationMap = new Map<string, string[]>();
 
@@ -111,7 +108,3 @@ function findRoutes(start: string, end: string): Route[] {
 
   return routes;
 }
-
-// Find and display all possible routes
-const routes = findRoutes(start, end);
-console.log("Possible routes:", routes);

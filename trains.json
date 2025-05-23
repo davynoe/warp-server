@@ -2,113 +2,113 @@
   {
     "name": "YOG-01",
     "line": "WARP-YOG",
-    "priceEconomy": 150,
-    "priceFirstClass": 450,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   },
   {
     "name": "YOG-02",
     "line": "WARP-YOG-REV",
-    "priceEconomy": 150,
-    "priceFirstClass": 450,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   },
   {
     "name": "XNG-01",
     "line": "WARP-XNG",
-    "priceEconomy": 90,
-    "priceFirstClass": 250,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   },
   {
     "name": "XNG-02",
     "line": "WARP-XNG-REV",
-    "priceEconomy": 90,
-    "priceFirstClass": 250,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   },
   {
     "name": "WMF-01",
     "line": "WARP-WMF",
-    "priceEconomy": 100,
-    "priceFirstClass": 280,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   },
   {
     "name": "WMF-02",
     "line": "WARP-WMF-REV",
-    "priceEconomy": 100,
-    "priceFirstClass": 280,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   },
   {
     "name": "VLE-01",
     "line": "WARP-VLE",
-    "priceEconomy": 140,
-    "priceFirstClass": 420,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   },
   {
     "name": "VLE-02",
     "line": "WARP-VLE-REV",
-    "priceEconomy": 140,
-    "priceFirstClass": 420,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   },
   {
     "name": "PH-01",
     "line": "WARP-PH",
-    "priceEconomy": 70,
-    "priceFirstClass": 200,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   },
   {
     "name": "PH--02",
     "line": "WARP-PH-REV",
-    "priceEconomy": 70,
-    "priceFirstClass": 200,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   },
   {
     "name": "EKU-01",
     "line": "WARP-EKU",
-    "priceEconomy": 110,
-    "priceFirstClass": 300,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   },
   {
     "name": "EKU-02",
     "line": "WARP-EKU-REV",
-    "priceEconomy": 110,
-    "priceFirstClass": 300,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   },
   {
     "name": "DIR-01",
     "line": "WARP-DIRS",
-    "priceEconomy": 130,
-    "priceFirstClass": 360,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   },
   {
     "name": "DIR-02",
     "line": "WARP-DIRS-REV",
-    "priceEconomy": 130,
-    "priceFirstClass": 360,
     "economySeats": 200,
-    "firstClassSeats": 100
+    "firstClassSeats": 100,
+    "status": "stopped",
+    "currentStation": "none"
   }
 ]

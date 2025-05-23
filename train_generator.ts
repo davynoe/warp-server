@@ -25,6 +25,8 @@ for (const line of lines) {
     line: line_code,
     economySeats: 200,
     firstClassSeats: 100,
+    status: "stopped",
+    currentStation: "none",
   };
 
   const reverseTrain: Train = {
@@ -32,6 +34,8 @@ for (const line of lines) {
     line: reverse_code,
     economySeats: 200,
     firstClassSeats: 100,
+    status: "stopped",
+    currentStation: "none",
   };
 
   trains.push(train);
