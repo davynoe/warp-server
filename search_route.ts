@@ -61,8 +61,7 @@ function findNextSchedule(
 
 export function findRoutes(
   start: DistrictCode,
-  end: DistrictCode,
-  time: string
+  end: DistrictCode
 ): MergedRoute[] {
   // Create a map of stations to their connected lines
   const stationMap = new Map<string, string[]>();
@@ -134,7 +133,7 @@ export function findRoutes(
       // Find all possible schedules for this route
       let currentScheduleId = 0;
       while (true) {
-        let currentTime = time;
+        let currentTime = "00:00:00";
         const segments = splitLines(current.stations, transferStations);
         const lineSchedules = segments.map((segmentStations, index) => {
           const lineCode = directionalLines[index];

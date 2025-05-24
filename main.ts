@@ -37,10 +37,9 @@ Deno.serve({ port: 8000 }, (req) => {
     const url = new URL(req.url);
     const start = url.searchParams.get("start") as DistrictCode;
     const end = url.searchParams.get("end") as DistrictCode;
-    const time = url.searchParams.get("time") || "00:00:00";
 
     if (start && end) {
-      const routes = findRoutes(start, end, time);
+      const routes = findRoutes(start, end);
       console.log(JSON.stringify(routes, null, 2));
       return new Response(JSON.stringify(routes, null, 2), {
         headers: responseHeaders,
