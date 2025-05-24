@@ -1,7 +1,7 @@
 import { Line, Train } from "./definitions.ts";
 
 // Read the lines data
-const lines: Line[] = JSON.parse(await Deno.readTextFile("lines.json"));
+const lines: Line[] = JSON.parse(await Deno.readTextFile("./data/lines.json"));
 const trains: Train[] = [];
 
 const nameTrain = (line_code: string): string => {

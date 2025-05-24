@@ -1,7 +1,7 @@
 import { Line, Stop, Schedule } from "./definitions.ts";
 
 // Read the lines data
-const lines: Line[] = JSON.parse(await Deno.readTextFile("lines.json"));
+const lines: Line[] = JSON.parse(await Deno.readTextFile("./data/lines.json"));
 
 // Helper: format Date object to "HH:mm:ss"
 const formatTime = (date: Date): string => {

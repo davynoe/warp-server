@@ -1,5 +1,5 @@
 import { Line, Route } from "./definitions.ts";
-const lines: Line[] = JSON.parse(Deno.readTextFileSync("lines.json"));
+const lines: Line[] = JSON.parse(Deno.readTextFileSync("./data/lines.json"));
 
 export function findRoutes(start: string, end: string): Route[] {
   // Create a map of stations to their connected lines

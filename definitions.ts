@@ -23,10 +23,15 @@ export interface Train {
   economySeats: number;
   firstClassSeats: number;
   status: "at station" | "in transit" | "stopped";
-  currentStation: District | "none";
+  currentStation: DistrictCode | "none";
 }
 
-type District =
+export interface District {
+  code: DistrictCode;
+  name: string;
+}
+
+export type DistrictCode =
   | "A"
   | "B"
   | "C"
