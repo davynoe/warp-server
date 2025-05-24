@@ -2,12 +2,12 @@ export interface Line {
   id: number;
   code: string;
   name: string;
-  stations: string[];
+  stations: DistrictCode[];
   length: number;
 }
 
 export interface Stop {
-  station: string;
+  station: DistrictCode;
   arrival: string;
   departure: string;
 }
@@ -60,10 +60,15 @@ export type DistrictCode =
   | "Y";
 
 export interface Route {
-  stations: string[];
-  lines: string[];
-  transferStations: string[];
-  totalStations: number;
-  priceEconomy: number;
-  priceFirstClass: number;
+  route: DistrictCode[];
+  lines: {
+    name: string;
+    segment: DistrictCode[];
+  }[];
+  transfer: DistrictCode[];
+  stationsCount: number;
+  prices: {
+    economy: number;
+    firstClass: number;
+  };
 }

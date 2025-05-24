@@ -1,4 +1,10 @@
-import { District, Line, Schedule, Train } from "./definitions.ts";
+import {
+  District,
+  DistrictCode,
+  Line,
+  Schedule,
+  Train,
+} from "./definitions.ts";
 import { findRoutes } from "./search_route.ts";
 const pathname = (url: string) => new URL(url).pathname;
 
@@ -29,8 +35,8 @@ Deno.serve({ port: 8000 }, (req) => {
   if (req.method === "GET" && endpoint === "/find-routes") {
     console.log("Received request to find routes");
     const url = new URL(req.url);
-    const start = url.searchParams.get("start");
-    const end = url.searchParams.get("end");
+    const start = url.searchParams.get("start") as DistrictCode;
+    const end = url.searchParams.get("end") as DistrictCode;
 
     if (start && end) {
       const routes = findRoutes(start, end);

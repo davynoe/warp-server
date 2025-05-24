@@ -1,7 +1,29 @@
-import { Line, Route } from "./definitions.ts";
+import { DistrictCode, Line, Route } from "./definitions.ts";
 const lines: Line[] = JSON.parse(Deno.readTextFileSync("./data/lines.json"));
 
-export function findRoutes(start: string, end: string): Route[] {
+function splitLines(
+  stations: DistrictCode[],
+  transferStations: DistrictCode[]
+): DistrictCode[][] {
+  const result: DistrictCode[][] = [];
+  let start = 0;
+
+  for (let i = 0; i < stations.length; i++) {
+    if (transferStations.includes(stations[i])) {
+      const end = i + 1;
+      result.push(stations.slice(start, end));
+      start = i; // allow overlap
+    }
+  }
+
+  if (start < stations.length) {
+    result.push(stations.slice(start));
+  }
+
+  return result;
+}
+
+export function findRoutes(start: DistrictCode, end: DistrictCode): Route[] {
   // Create a map of stations to their connected lines
   const stationMap = new Map<string, string[]>();
 
@@ -17,7 +39,7 @@ export function findRoutes(start: string, end: string): Route[] {
 
   // Find all possible routes using BFS
   const routes: Route[] = [];
-  const queue: { stations: string[]; lines: string[] }[] = [
+  const queue: { stations: DistrictCode[]; lines: string[] }[] = [
     {
       stations: [start],
       lines: [],
@@ -70,12 +92,19 @@ export function findRoutes(start: string, end: string): Route[] {
       });
 
       const route: Route = {
-        stations: current.stations,
-        lines: directionalLines,
-        transferStations: transferStations,
-        totalStations: current.stations.length - 1,
-        priceEconomy: 120,
-        priceFirstClass: 400,
+        route: current.stations,
+        lines: splitLines(current.stations, transferStations).map(
+          (sectionStations, index) => ({
+            name: directionalLines[index],
+            segment: sectionStations,
+          })
+        ),
+        transfer: transferStations,
+        stationsCount: current.stations.length,
+        prices: {
+          economy: 120,
+          firstClass: 400,
+        },
       };
       routes.push(route);
       continue;
