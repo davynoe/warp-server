@@ -13,6 +13,7 @@ export interface Stop {
 }
 
 export interface Schedule {
+  id: number;
   lineCode: string;
   stops: Stop[];
 }

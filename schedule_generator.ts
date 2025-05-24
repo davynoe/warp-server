@@ -17,6 +17,7 @@ const parseTime = (timeString: string): Date => {
 };
 
 const generateSchedule = (
+  id: number,
   line_code: string,
   starting_time_str: string,
   reverse = false
@@ -49,6 +50,7 @@ const generateSchedule = (
   }
 
   return {
+    id: id,
     lineCode: line_code,
     stops: stops,
   };
@@ -64,12 +66,15 @@ const starting_times = [
   "23:00:00",
 ];
 
+let i = 0;
 for (const line of lines) {
   for (const starting_time of starting_times) {
-    const schedule = generateSchedule(line.code, starting_time, false);
+    const schedule = generateSchedule(i, line.code, starting_time, false);
     schedules.push(schedule);
-    const reverseSchedule = generateSchedule(line.code, starting_time, true);
+    i++;
+    const reverseSchedule = generateSchedule(i, line.code, starting_time, true);
     schedules.push(reverseSchedule);
+    i++;
   }
 }
 
