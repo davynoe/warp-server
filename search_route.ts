@@ -4,11 +4,13 @@ import {
   Route,
   Schedule,
   ScheduleStop,
+  Train,
 } from "./definitions.ts";
 const lines: Line[] = JSON.parse(Deno.readTextFileSync("./data/lines.json"));
 const schedules: Schedule[] = JSON.parse(
   Deno.readTextFileSync("./data/schedules.json")
 );
+const trains: Train[] = JSON.parse(Deno.readTextFileSync("./data/trains.json"));
 
 function splitLines(
   stations: DistrictCode[],
@@ -147,6 +149,9 @@ export function findRoutes(
             currentTime = lastStop.arrival;
           }
 
+          // Find the train for this line
+          const train = trains.find((t) => t.line === lineCode);
+
           // Create a schedule segment with only the relevant stops
           const scheduleSegment = {
             id: schedule.id,
@@ -166,6 +171,7 @@ export function findRoutes(
 
           return {
             name: lineCode,
+            trainName: train?.name,
             segment: segmentStations,
             schedule: scheduleSegment,
           };
@@ -173,6 +179,7 @@ export function findRoutes(
 
         return {
           name: lineCode,
+          trainName: trains.find((t) => t.line === lineCode)?.name,
           segment: segmentStations,
           schedule: undefined,
         };

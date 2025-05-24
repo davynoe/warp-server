@@ -23,8 +23,14 @@ for (const line of lines) {
   const train: Train = {
     name: codeName,
     line: line_code,
-    economySeats: 200,
-    firstClassSeats: 100,
+    economySeats: {
+      available: 200,
+      taken: 0,
+    },
+    firstClassSeats: {
+      available: 100,
+      taken: 0,
+    },
     status: "stopped",
     currentStation: "none",
   };
@@ -32,8 +38,14 @@ for (const line of lines) {
   const reverseTrain: Train = {
     name: reverseCodeName,
     line: reverse_code,
-    economySeats: 200,
-    firstClassSeats: 100,
+    economySeats: {
+      available: 200,
+      taken: 0,
+    },
+    firstClassSeats: {
+      available: 100,
+      taken: 0,
+    },
     status: "stopped",
     currentStation: "none",
   };

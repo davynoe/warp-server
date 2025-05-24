@@ -27,8 +27,14 @@ export interface Schedule {
 export interface Train {
   name: string;
   line: string;
-  economySeats: number;
-  firstClassSeats: number;
+  economySeats: {
+    available: number;
+    taken: number;
+  };
+  firstClassSeats: {
+    available: number;
+    taken: number;
+  };
   status: "at station" | "in transit" | "stopped";
   currentStation: DistrictCode | "none";
 }
@@ -69,6 +75,7 @@ export interface Route {
   route: DistrictCode[];
   lines: {
     name: string;
+    trainName?: string;
     segment: DistrictCode[];
     schedule?: {
       id: number;
