@@ -89,3 +89,30 @@ export interface Route {
     firstClass: number;
   };
 }
+
+export interface ScheduleSegment {
+  line: string;
+  scheduleId: number;
+  stops: ScheduleStop[];
+}
+
+export interface RouteSchedule {
+  id: number;
+  segments: ScheduleSegment[];
+}
+
+export interface MergedRoute {
+  route: DistrictCode[];
+  lines: {
+    name: string;
+    trainName?: string;
+    segment: DistrictCode[];
+  }[];
+  transfer: DistrictCode[];
+  stationsCount: number;
+  prices: {
+    economy: number;
+    firstClass: number;
+  };
+  schedules: RouteSchedule[];
+}

@@ -5,6 +5,8 @@ import {
   Schedule,
   ScheduleStop,
   Train,
+  MergedRoute,
+  ScheduleSegment,
 } from "./definitions.ts";
 const lines: Line[] = JSON.parse(Deno.readTextFileSync("./data/lines.json"));
 const schedules: Schedule[] = JSON.parse(
@@ -38,10 +40,12 @@ function findNextSchedule(
   lineCode: string,
   startTime: string,
   startStation: DistrictCode,
-  endStation: DistrictCode
+  endStation: DistrictCode,
+  startFromScheduleId?: number
 ): Schedule | undefined {
   return schedules.find((schedule) => {
     if (schedule.lineCode !== lineCode) return false;
+    if (startFromScheduleId && schedule.id < startFromScheduleId) return false;
 
     const startStop = schedule.stops.find(
       (stop) => stop.station === startStation
@@ -59,7 +63,7 @@ export function findRoutes(
   start: DistrictCode,
   end: DistrictCode,
   time: string
-): Route[] {
+): MergedRoute[] {
   // Create a map of stations to their connected lines
   const stationMap = new Map<string, string[]>();
 
@@ -127,75 +131,90 @@ export function findRoutes(
         return segments[0]; // Take the first segment's direction
       });
 
-      // Find schedules for each segment
-      let currentTime = time;
-      const segments = splitLines(current.stations, transferStations);
-      const lineSchedules = segments.map((segmentStations, index) => {
-        const lineCode = directionalLines[index];
-        const schedule = findNextSchedule(
-          lineCode,
-          currentTime,
-          segmentStations[0],
-          segmentStations[segmentStations.length - 1]
-        );
-
-        if (schedule) {
-          // Update currentTime for next segment
-          const lastStop = schedule.stops.find(
-            (stop) =>
-              stop.station === segmentStations[segmentStations.length - 1]
+      // Find all possible schedules for this route
+      let currentScheduleId = 0;
+      while (true) {
+        let currentTime = time;
+        const segments = splitLines(current.stations, transferStations);
+        const lineSchedules = segments.map((segmentStations, index) => {
+          const lineCode = directionalLines[index];
+          const schedule = findNextSchedule(
+            lineCode,
+            currentTime,
+            segmentStations[0],
+            segmentStations[segmentStations.length - 1],
+            index === 0 ? currentScheduleId : undefined
           );
-          if (lastStop) {
-            currentTime = lastStop.arrival;
+
+          if (schedule) {
+            // Update currentTime for next segment
+            const lastStop = schedule.stops.find(
+              (stop) =>
+                stop.station === segmentStations[segmentStations.length - 1]
+            );
+            if (lastStop) {
+              currentTime = lastStop.arrival;
+            }
+
+            // Find the train for this line
+            const train = trains.find((t) => t.line === lineCode);
+
+            // Create a schedule segment with only the relevant stops
+            const scheduleSegment = {
+              id: schedule.id,
+              stops: schedule.stops
+                .filter((stop) => segmentStations.includes(stop.station))
+                .map((stop, index, array) => {
+                  // If this is the last stop in the segment, remove departure time
+                  if (index === array.length - 1) {
+                    return {
+                      station: stop.station,
+                      arrival: stop.arrival,
+                    } as ScheduleStop;
+                  }
+                  return stop as ScheduleStop;
+                }),
+            };
+
+            return {
+              name: lineCode,
+              trainName: train?.name,
+              segment: segmentStations,
+              schedule: scheduleSegment,
+            };
           }
-
-          // Find the train for this line
-          const train = trains.find((t) => t.line === lineCode);
-
-          // Create a schedule segment with only the relevant stops
-          const scheduleSegment = {
-            id: schedule.id,
-            stops: schedule.stops
-              .filter((stop) => segmentStations.includes(stop.station))
-              .map((stop, index, array) => {
-                // If this is the last stop in the segment, remove departure time
-                if (index === array.length - 1) {
-                  return {
-                    station: stop.station,
-                    arrival: stop.arrival,
-                  } as ScheduleStop;
-                }
-                return stop as ScheduleStop;
-              }),
-          };
 
           return {
             name: lineCode,
-            trainName: train?.name,
+            trainName: trains.find((t) => t.line === lineCode)?.name,
             segment: segmentStations,
-            schedule: scheduleSegment,
+            schedule: undefined,
           };
+        });
+
+        // If we couldn't find a valid schedule for any segment, break the loop
+        if (lineSchedules.some((ls) => !ls.schedule)) {
+          break;
         }
 
-        return {
-          name: lineCode,
-          trainName: trains.find((t) => t.line === lineCode)?.name,
-          segment: segmentStations,
-          schedule: undefined,
+        const route: Route = {
+          route: current.stations,
+          lines: lineSchedules,
+          transfer: transferStations,
+          stationsCount: current.stations.length,
+          prices: {
+            economy: 120,
+            firstClass: 400,
+          },
         };
-      });
+        routes.push(route);
 
-      const route: Route = {
-        route: current.stations,
-        lines: lineSchedules,
-        transfer: transferStations,
-        stationsCount: current.stations.length,
-        prices: {
-          economy: 120,
-          firstClass: 400,
-        },
-      };
-      routes.push(route);
+        // Get the next schedule ID for the first segment
+        const firstSegmentSchedule = lineSchedules[0].schedule;
+        if (!firstSegmentSchedule) break;
+        currentScheduleId = firstSegmentSchedule.id + 1;
+      }
+
       continue;
     }
 
@@ -224,5 +243,45 @@ export function findRoutes(
     }
   }
 
-  return routes;
+  // Merge routes with the same path
+  const mergedRoutes = new Map<string, MergedRoute>();
+
+  for (const route of routes) {
+    const routeKey = route.route.join(",");
+    if (!mergedRoutes.has(routeKey)) {
+      // Create the base route structure
+      mergedRoutes.set(routeKey, {
+        route: route.route,
+        lines: route.lines.map((line) => ({
+          name: line.name,
+          trainName: line.trainName,
+          segment: line.segment,
+        })),
+        transfer: route.transfer,
+        stationsCount: route.stationsCount,
+        prices: route.prices,
+        schedules: [],
+      });
+    }
+
+    // Add the schedule to the merged route
+    const mergedRoute = mergedRoutes.get(routeKey)!;
+    const scheduleSegments: ScheduleSegment[] = route.lines
+      .filter((line) => line.schedule)
+      .map((line) => ({
+        line: line.name,
+        scheduleId: line.schedule!.id,
+        stops: line.schedule!.stops,
+      }));
+
+    mergedRoute.schedules.push({
+      id: mergedRoute.schedules.length + 1,
+      segments: scheduleSegments,
+    });
+  }
+
+  console.log(
+    `Found ${mergedRoutes.size} unique routes with ${routes.length} total schedules`
+  );
+  return Array.from(mergedRoutes.values());
 }
