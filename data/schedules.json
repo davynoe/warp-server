@@ -96,42 +96,42 @@
     "lineCode": "WARP-YOG",
     "stops": [
       {
-        "station": "T",
+        "station": "Y",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
       {
-        "station": "J",
+        "station": "O",
         "arrival": "11:10:10",
         "departure": "11:20:10"
       },
       {
-        "station": "D",
+        "station": "G",
         "arrival": "11:20:20",
         "departure": "11:30:20"
       },
       {
-        "station": "A",
+        "station": "B",
         "arrival": "11:30:30",
         "departure": "11:40:30"
       },
       {
-        "station": "B",
+        "station": "A",
         "arrival": "11:40:40",
         "departure": "11:50:40"
       },
       {
-        "station": "G",
+        "station": "D",
         "arrival": "11:50:50",
         "departure": "12:00:50"
       },
       {
-        "station": "O",
+        "station": "J",
         "arrival": "12:01:00",
         "departure": "12:11:00"
       },
       {
-        "station": "Y",
+        "station": "T",
         "arrival": "12:11:10",
         "departure": "12:21:10"
       }
@@ -142,42 +142,42 @@
     "lineCode": "WARP-YOG-REV",
     "stops": [
       {
-        "station": "Y",
+        "station": "T",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
       {
-        "station": "O",
+        "station": "J",
         "arrival": "11:10:10",
         "departure": "11:20:10"
       },
       {
-        "station": "G",
+        "station": "D",
         "arrival": "11:20:20",
         "departure": "11:30:20"
       },
       {
-        "station": "B",
+        "station": "A",
         "arrival": "11:30:30",
         "departure": "11:40:30"
       },
       {
-        "station": "A",
+        "station": "B",
         "arrival": "11:40:40",
         "departure": "11:50:40"
       },
       {
-        "station": "D",
+        "station": "G",
         "arrival": "11:50:50",
         "departure": "12:00:50"
       },
       {
-        "station": "J",
+        "station": "O",
         "arrival": "12:01:00",
         "departure": "12:11:00"
       },
       {
-        "station": "T",
+        "station": "Y",
         "arrival": "12:11:10",
         "departure": "12:21:10"
       }
@@ -280,42 +280,42 @@
     "lineCode": "WARP-YOG",
     "stops": [
       {
-        "station": "T",
+        "station": "Y",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
       {
-        "station": "J",
+        "station": "O",
         "arrival": "17:10:10",
         "departure": "17:20:10"
       },
       {
-        "station": "D",
+        "station": "G",
         "arrival": "17:20:20",
         "departure": "17:30:20"
       },
       {
-        "station": "A",
+        "station": "B",
         "arrival": "17:30:30",
         "departure": "17:40:30"
       },
       {
-        "station": "B",
+        "station": "A",
         "arrival": "17:40:40",
         "departure": "17:50:40"
       },
       {
-        "station": "G",
+        "station": "D",
         "arrival": "17:50:50",
         "departure": "18:00:50"
       },
       {
-        "station": "O",
+        "station": "J",
         "arrival": "18:01:00",
         "departure": "18:11:00"
       },
       {
-        "station": "Y",
+        "station": "T",
         "arrival": "18:11:10",
         "departure": "18:21:10"
       }
@@ -326,42 +326,42 @@
     "lineCode": "WARP-YOG-REV",
     "stops": [
       {
-        "station": "Y",
+        "station": "T",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
       {
-        "station": "O",
+        "station": "J",
         "arrival": "17:10:10",
         "departure": "17:20:10"
       },
       {
-        "station": "G",
+        "station": "D",
         "arrival": "17:20:20",
         "departure": "17:30:20"
       },
       {
-        "station": "B",
+        "station": "A",
         "arrival": "17:30:30",
         "departure": "17:40:30"
       },
       {
-        "station": "A",
+        "station": "B",
         "arrival": "17:40:40",
         "departure": "17:50:40"
       },
       {
-        "station": "D",
+        "station": "G",
         "arrival": "17:50:50",
         "departure": "18:00:50"
       },
       {
-        "station": "J",
+        "station": "O",
         "arrival": "18:01:00",
         "departure": "18:11:00"
       },
       {
-        "station": "T",
+        "station": "Y",
         "arrival": "18:11:10",
         "departure": "18:21:10"
       }
@@ -464,42 +464,42 @@
     "lineCode": "WARP-YOG",
     "stops": [
       {
-        "station": "T",
+        "station": "Y",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
       {
-        "station": "J",
+        "station": "O",
         "arrival": "23:10:10",
         "departure": "23:20:10"
       },
       {
-        "station": "D",
+        "station": "G",
         "arrival": "23:20:20",
         "departure": "23:30:20"
       },
       {
-        "station": "A",
+        "station": "B",
         "arrival": "23:30:30",
         "departure": "23:40:30"
       },
       {
-        "station": "B",
+        "station": "A",
         "arrival": "23:40:40",
         "departure": "23:50:40"
       },
       {
-        "station": "G",
+        "station": "D",
         "arrival": "23:50:50",
         "departure": "00:00:50"
       },
       {
-        "station": "O",
+        "station": "J",
         "arrival": "00:01:00",
         "departure": "00:11:00"
       },
       {
-        "station": "Y",
+        "station": "T",
         "arrival": "00:11:10",
         "departure": "00:21:10"
       }
@@ -510,42 +510,42 @@
     "lineCode": "WARP-YOG-REV",
     "stops": [
       {
-        "station": "Y",
+        "station": "T",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
       {
-        "station": "O",
+        "station": "J",
         "arrival": "23:10:10",
         "departure": "23:20:10"
       },
       {
-        "station": "G",
+        "station": "D",
         "arrival": "23:20:20",
         "departure": "23:30:20"
       },
       {
-        "station": "B",
+        "station": "A",
         "arrival": "23:30:30",
         "departure": "23:40:30"
       },
       {
-        "station": "A",
+        "station": "B",
         "arrival": "23:40:40",
         "departure": "23:50:40"
       },
       {
-        "station": "D",
+        "station": "G",
         "arrival": "23:50:50",
         "departure": "00:00:50"
       },
       {
-        "station": "J",
+        "station": "O",
         "arrival": "00:01:00",
         "departure": "00:11:00"
       },
       {
-        "station": "T",
+        "station": "Y",
         "arrival": "00:11:10",
         "departure": "00:21:10"
       }
@@ -598,7 +598,7 @@
     "lineCode": "WARP-XNG",
     "stops": [
       {
-        "station": "G",
+        "station": "X",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
@@ -608,7 +608,7 @@
         "departure": "11:20:10"
       },
       {
-        "station": "X",
+        "station": "G",
         "arrival": "11:20:20",
         "departure": "11:30:20"
       }
@@ -619,7 +619,7 @@
     "lineCode": "WARP-XNG-REV",
     "stops": [
       {
-        "station": "X",
+        "station": "G",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
@@ -629,7 +629,7 @@
         "departure": "11:20:10"
       },
       {
-        "station": "G",
+        "station": "X",
         "arrival": "11:20:20",
         "departure": "11:30:20"
       }
@@ -682,7 +682,7 @@
     "lineCode": "WARP-XNG",
     "stops": [
       {
-        "station": "G",
+        "station": "X",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
@@ -692,7 +692,7 @@
         "departure": "17:20:10"
       },
       {
-        "station": "X",
+        "station": "G",
         "arrival": "17:20:20",
         "departure": "17:30:20"
       }
@@ -703,7 +703,7 @@
     "lineCode": "WARP-XNG-REV",
     "stops": [
       {
-        "station": "X",
+        "station": "G",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
@@ -713,7 +713,7 @@
         "departure": "17:20:10"
       },
       {
-        "station": "G",
+        "station": "X",
         "arrival": "17:20:20",
         "departure": "17:30:20"
       }
@@ -766,7 +766,7 @@
     "lineCode": "WARP-XNG",
     "stops": [
       {
-        "station": "G",
+        "station": "X",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
@@ -776,7 +776,7 @@
         "departure": "23:20:10"
       },
       {
-        "station": "X",
+        "station": "G",
         "arrival": "23:20:20",
         "departure": "23:30:20"
       }
@@ -787,7 +787,7 @@
     "lineCode": "WARP-XNG-REV",
     "stops": [
       {
-        "station": "X",
+        "station": "G",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
@@ -797,7 +797,7 @@
         "departure": "23:20:10"
       },
       {
-        "station": "G",
+        "station": "X",
         "arrival": "23:20:20",
         "departure": "23:30:20"
       }
@@ -860,22 +860,22 @@
     "lineCode": "WARP-WMF",
     "stops": [
       {
-        "station": "B",
+        "station": "W",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
       {
-        "station": "F",
+        "station": "M",
         "arrival": "11:10:10",
         "departure": "11:20:10"
       },
       {
-        "station": "M",
+        "station": "F",
         "arrival": "11:20:20",
         "departure": "11:30:20"
       },
       {
-        "station": "W",
+        "station": "B",
         "arrival": "11:30:30",
         "departure": "11:40:30"
       }
@@ -886,22 +886,22 @@
     "lineCode": "WARP-WMF-REV",
     "stops": [
       {
-        "station": "W",
+        "station": "B",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
       {
-        "station": "M",
+        "station": "F",
         "arrival": "11:10:10",
         "departure": "11:20:10"
       },
       {
-        "station": "F",
+        "station": "M",
         "arrival": "11:20:20",
         "departure": "11:30:20"
       },
       {
-        "station": "B",
+        "station": "W",
         "arrival": "11:30:30",
         "departure": "11:40:30"
       }
@@ -964,22 +964,22 @@
     "lineCode": "WARP-WMF",
     "stops": [
       {
-        "station": "B",
+        "station": "W",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
       {
-        "station": "F",
+        "station": "M",
         "arrival": "17:10:10",
         "departure": "17:20:10"
       },
       {
-        "station": "M",
+        "station": "F",
         "arrival": "17:20:20",
         "departure": "17:30:20"
       },
       {
-        "station": "W",
+        "station": "B",
         "arrival": "17:30:30",
         "departure": "17:40:30"
       }
@@ -990,22 +990,22 @@
     "lineCode": "WARP-WMF-REV",
     "stops": [
       {
-        "station": "W",
+        "station": "B",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
       {
-        "station": "M",
+        "station": "F",
         "arrival": "17:10:10",
         "departure": "17:20:10"
       },
       {
-        "station": "F",
+        "station": "M",
         "arrival": "17:20:20",
         "departure": "17:30:20"
       },
       {
-        "station": "B",
+        "station": "W",
         "arrival": "17:30:30",
         "departure": "17:40:30"
       }
@@ -1068,22 +1068,22 @@
     "lineCode": "WARP-WMF",
     "stops": [
       {
-        "station": "B",
+        "station": "W",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
       {
-        "station": "F",
+        "station": "M",
         "arrival": "23:10:10",
         "departure": "23:20:10"
       },
       {
-        "station": "M",
+        "station": "F",
         "arrival": "23:20:20",
         "departure": "23:30:20"
       },
       {
-        "station": "W",
+        "station": "B",
         "arrival": "23:30:30",
         "departure": "23:40:30"
       }
@@ -1094,22 +1094,22 @@
     "lineCode": "WARP-WMF-REV",
     "stops": [
       {
-        "station": "W",
+        "station": "B",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
       {
-        "station": "M",
+        "station": "F",
         "arrival": "23:10:10",
         "departure": "23:20:10"
       },
       {
-        "station": "F",
+        "station": "M",
         "arrival": "23:20:20",
         "departure": "23:30:20"
       },
       {
-        "station": "B",
+        "station": "W",
         "arrival": "23:30:30",
         "departure": "23:40:30"
       }
@@ -1202,17 +1202,17 @@
     "lineCode": "WARP-VLE",
     "stops": [
       {
-        "station": "Q",
+        "station": "V",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
       {
-        "station": "H",
+        "station": "L",
         "arrival": "11:10:10",
         "departure": "11:20:10"
       },
       {
-        "station": "C",
+        "station": "E",
         "arrival": "11:20:20",
         "departure": "11:30:20"
       },
@@ -1222,17 +1222,17 @@
         "departure": "11:40:30"
       },
       {
-        "station": "E",
+        "station": "C",
         "arrival": "11:40:40",
         "departure": "11:50:40"
       },
       {
-        "station": "L",
+        "station": "H",
         "arrival": "11:50:50",
         "departure": "12:00:50"
       },
       {
-        "station": "V",
+        "station": "Q",
         "arrival": "12:01:00",
         "departure": "12:11:00"
       }
@@ -1243,17 +1243,17 @@
     "lineCode": "WARP-VLE-REV",
     "stops": [
       {
-        "station": "V",
+        "station": "Q",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
       {
-        "station": "L",
+        "station": "H",
         "arrival": "11:10:10",
         "departure": "11:20:10"
       },
       {
-        "station": "E",
+        "station": "C",
         "arrival": "11:20:20",
         "departure": "11:30:20"
       },
@@ -1263,17 +1263,17 @@
         "departure": "11:40:30"
       },
       {
-        "station": "C",
+        "station": "E",
         "arrival": "11:40:40",
         "departure": "11:50:40"
       },
       {
-        "station": "H",
+        "station": "L",
         "arrival": "11:50:50",
         "departure": "12:00:50"
       },
       {
-        "station": "Q",
+        "station": "V",
         "arrival": "12:01:00",
         "departure": "12:11:00"
       }
@@ -1366,17 +1366,17 @@
     "lineCode": "WARP-VLE",
     "stops": [
       {
-        "station": "Q",
+        "station": "V",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
       {
-        "station": "H",
+        "station": "L",
         "arrival": "17:10:10",
         "departure": "17:20:10"
       },
       {
-        "station": "C",
+        "station": "E",
         "arrival": "17:20:20",
         "departure": "17:30:20"
       },
@@ -1386,17 +1386,17 @@
         "departure": "17:40:30"
       },
       {
-        "station": "E",
+        "station": "C",
         "arrival": "17:40:40",
         "departure": "17:50:40"
       },
       {
-        "station": "L",
+        "station": "H",
         "arrival": "17:50:50",
         "departure": "18:00:50"
       },
       {
-        "station": "V",
+        "station": "Q",
         "arrival": "18:01:00",
         "departure": "18:11:00"
       }
@@ -1407,17 +1407,17 @@
     "lineCode": "WARP-VLE-REV",
     "stops": [
       {
-        "station": "V",
+        "station": "Q",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
       {
-        "station": "L",
+        "station": "H",
         "arrival": "17:10:10",
         "departure": "17:20:10"
       },
       {
-        "station": "E",
+        "station": "C",
         "arrival": "17:20:20",
         "departure": "17:30:20"
       },
@@ -1427,17 +1427,17 @@
         "departure": "17:40:30"
       },
       {
-        "station": "C",
+        "station": "E",
         "arrival": "17:40:40",
         "departure": "17:50:40"
       },
       {
-        "station": "H",
+        "station": "L",
         "arrival": "17:50:50",
         "departure": "18:00:50"
       },
       {
-        "station": "Q",
+        "station": "V",
         "arrival": "18:01:00",
         "departure": "18:11:00"
       }
@@ -1530,17 +1530,17 @@
     "lineCode": "WARP-VLE",
     "stops": [
       {
-        "station": "Q",
+        "station": "V",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
       {
-        "station": "H",
+        "station": "L",
         "arrival": "23:10:10",
         "departure": "23:20:10"
       },
       {
-        "station": "C",
+        "station": "E",
         "arrival": "23:20:20",
         "departure": "23:30:20"
       },
@@ -1550,17 +1550,17 @@
         "departure": "23:40:30"
       },
       {
-        "station": "E",
+        "station": "C",
         "arrival": "23:40:40",
         "departure": "23:50:40"
       },
       {
-        "station": "L",
+        "station": "H",
         "arrival": "23:50:50",
         "departure": "00:00:50"
       },
       {
-        "station": "V",
+        "station": "Q",
         "arrival": "00:01:00",
         "departure": "00:11:00"
       }
@@ -1571,17 +1571,17 @@
     "lineCode": "WARP-VLE-REV",
     "stops": [
       {
-        "station": "V",
+        "station": "Q",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
       {
-        "station": "L",
+        "station": "H",
         "arrival": "23:10:10",
         "departure": "23:20:10"
       },
       {
-        "station": "E",
+        "station": "C",
         "arrival": "23:20:20",
         "departure": "23:30:20"
       },
@@ -1591,17 +1591,17 @@
         "departure": "23:40:30"
       },
       {
-        "station": "C",
+        "station": "E",
         "arrival": "23:40:40",
         "departure": "23:50:40"
       },
       {
-        "station": "H",
+        "station": "L",
         "arrival": "23:50:50",
         "departure": "00:00:50"
       },
       {
-        "station": "Q",
+        "station": "V",
         "arrival": "00:01:00",
         "departure": "00:11:00"
       }
@@ -1644,12 +1644,12 @@
     "lineCode": "WARP-PH",
     "stops": [
       {
-        "station": "H",
+        "station": "P",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
       {
-        "station": "P",
+        "station": "H",
         "arrival": "11:10:10",
         "departure": "11:20:10"
       }
@@ -1660,12 +1660,12 @@
     "lineCode": "WARP-PH-REV",
     "stops": [
       {
-        "station": "P",
+        "station": "H",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
       {
-        "station": "H",
+        "station": "P",
         "arrival": "11:10:10",
         "departure": "11:20:10"
       }
@@ -1708,12 +1708,12 @@
     "lineCode": "WARP-PH",
     "stops": [
       {
-        "station": "H",
+        "station": "P",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
       {
-        "station": "P",
+        "station": "H",
         "arrival": "17:10:10",
         "departure": "17:20:10"
       }
@@ -1724,12 +1724,12 @@
     "lineCode": "WARP-PH-REV",
     "stops": [
       {
-        "station": "P",
+        "station": "H",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
       {
-        "station": "H",
+        "station": "P",
         "arrival": "17:10:10",
         "departure": "17:20:10"
       }
@@ -1772,12 +1772,12 @@
     "lineCode": "WARP-PH",
     "stops": [
       {
-        "station": "H",
+        "station": "P",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
       {
-        "station": "P",
+        "station": "H",
         "arrival": "23:10:10",
         "departure": "23:20:10"
       }
@@ -1788,12 +1788,12 @@
     "lineCode": "WARP-PH-REV",
     "stops": [
       {
-        "station": "P",
+        "station": "H",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
       {
-        "station": "H",
+        "station": "P",
         "arrival": "23:10:10",
         "departure": "23:20:10"
       }
@@ -1846,7 +1846,7 @@
     "lineCode": "WARP-EKU",
     "stops": [
       {
-        "station": "U",
+        "station": "E",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
@@ -1856,7 +1856,7 @@
         "departure": "11:20:10"
       },
       {
-        "station": "E",
+        "station": "U",
         "arrival": "11:20:20",
         "departure": "11:30:20"
       }
@@ -1867,7 +1867,7 @@
     "lineCode": "WARP-EKU-REV",
     "stops": [
       {
-        "station": "E",
+        "station": "U",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
@@ -1877,7 +1877,7 @@
         "departure": "11:20:10"
       },
       {
-        "station": "U",
+        "station": "E",
         "arrival": "11:20:20",
         "departure": "11:30:20"
       }
@@ -1930,7 +1930,7 @@
     "lineCode": "WARP-EKU",
     "stops": [
       {
-        "station": "U",
+        "station": "E",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
@@ -1940,7 +1940,7 @@
         "departure": "17:20:10"
       },
       {
-        "station": "E",
+        "station": "U",
         "arrival": "17:20:20",
         "departure": "17:30:20"
       }
@@ -1951,7 +1951,7 @@
     "lineCode": "WARP-EKU-REV",
     "stops": [
       {
-        "station": "E",
+        "station": "U",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
@@ -1961,7 +1961,7 @@
         "departure": "17:20:10"
       },
       {
-        "station": "U",
+        "station": "E",
         "arrival": "17:20:20",
         "departure": "17:30:20"
       }
@@ -2014,7 +2014,7 @@
     "lineCode": "WARP-EKU",
     "stops": [
       {
-        "station": "U",
+        "station": "E",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
@@ -2024,7 +2024,7 @@
         "departure": "23:20:10"
       },
       {
-        "station": "E",
+        "station": "U",
         "arrival": "23:20:20",
         "departure": "23:30:20"
       }
@@ -2035,7 +2035,7 @@
     "lineCode": "WARP-EKU-REV",
     "stops": [
       {
-        "station": "E",
+        "station": "U",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
@@ -2045,7 +2045,7 @@
         "departure": "23:20:10"
       },
       {
-        "station": "U",
+        "station": "E",
         "arrival": "23:20:20",
         "departure": "23:30:20"
       }
@@ -2108,22 +2108,22 @@
     "lineCode": "WARP-DIRS",
     "stops": [
       {
-        "station": "S",
+        "station": "D",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
       {
-        "station": "R",
+        "station": "I",
         "arrival": "11:10:10",
         "departure": "11:20:10"
       },
       {
-        "station": "I",
+        "station": "R",
         "arrival": "11:20:20",
         "departure": "11:30:20"
       },
       {
-        "station": "D",
+        "station": "S",
         "arrival": "11:30:30",
         "departure": "11:40:30"
       }
@@ -2134,22 +2134,22 @@
     "lineCode": "WARP-DIRS-REV",
     "stops": [
       {
-        "station": "D",
+        "station": "S",
         "arrival": "11:00:00",
         "departure": "11:10:00"
       },
       {
-        "station": "I",
+        "station": "R",
         "arrival": "11:10:10",
         "departure": "11:20:10"
       },
       {
-        "station": "R",
+        "station": "I",
         "arrival": "11:20:20",
         "departure": "11:30:20"
       },
       {
-        "station": "S",
+        "station": "D",
         "arrival": "11:30:30",
         "departure": "11:40:30"
       }
@@ -2212,22 +2212,22 @@
     "lineCode": "WARP-DIRS",
     "stops": [
       {
-        "station": "S",
+        "station": "D",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
       {
-        "station": "R",
+        "station": "I",
         "arrival": "17:10:10",
         "departure": "17:20:10"
       },
       {
-        "station": "I",
+        "station": "R",
         "arrival": "17:20:20",
         "departure": "17:30:20"
       },
       {
-        "station": "D",
+        "station": "S",
         "arrival": "17:30:30",
         "departure": "17:40:30"
       }
@@ -2238,22 +2238,22 @@
     "lineCode": "WARP-DIRS-REV",
     "stops": [
       {
-        "station": "D",
+        "station": "S",
         "arrival": "17:00:00",
         "departure": "17:10:00"
       },
       {
-        "station": "I",
+        "station": "R",
         "arrival": "17:10:10",
         "departure": "17:20:10"
       },
       {
-        "station": "R",
+        "station": "I",
         "arrival": "17:20:20",
         "departure": "17:30:20"
       },
       {
-        "station": "S",
+        "station": "D",
         "arrival": "17:30:30",
         "departure": "17:40:30"
       }
@@ -2316,22 +2316,22 @@
     "lineCode": "WARP-DIRS",
     "stops": [
       {
-        "station": "S",
+        "station": "D",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
       {
-        "station": "R",
+        "station": "I",
         "arrival": "23:10:10",
         "departure": "23:20:10"
       },
       {
-        "station": "I",
+        "station": "R",
         "arrival": "23:20:20",
         "departure": "23:30:20"
       },
       {
-        "station": "D",
+        "station": "S",
         "arrival": "23:30:30",
         "departure": "23:40:30"
       }
@@ -2342,22 +2342,22 @@
     "lineCode": "WARP-DIRS-REV",
     "stops": [
       {
-        "station": "D",
+        "station": "S",
         "arrival": "23:00:00",
         "departure": "23:10:00"
       },
       {
-        "station": "I",
+        "station": "R",
         "arrival": "23:10:10",
         "departure": "23:20:10"
       },
       {
-        "station": "R",
+        "station": "I",
         "arrival": "23:20:20",
         "departure": "23:30:20"
       },
       {
-        "station": "S",
+        "station": "D",
         "arrival": "23:30:30",
         "departure": "23:40:30"
       }

@@ -27,7 +27,7 @@ const generateSchedule = (
     throw new Error("line not found");
   }
 
-  const stations = line.stations;
+  const stations = [...line.stations]; // Create a copy of stations array
   if (reverse) {
     stations.reverse();
     line_code += "-REV";
@@ -35,12 +35,12 @@ const generateSchedule = (
 
   const stops: Stop[] = [];
   let currentTime = parseTime(starting_time_str);
-  for (let i = 0; i < line.length; i++) {
+  for (let i = 0; i < stations.length; i++) {
     const arrival = new Date(currentTime);
     const departure = new Date(currentTime.getTime() + 10 * 60 * 1000); // 10 minutes later
 
     stops.push({
-      station: line.stations[i],
+      station: stations[i],
       arrival: formatTime(arrival),
       departure: formatTime(departure),
     });

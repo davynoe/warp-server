@@ -1,5 +1,14 @@
-import { DistrictCode, Line, Route } from "./definitions.ts";
+import {
+  DistrictCode,
+  Line,
+  Route,
+  Schedule,
+  ScheduleStop,
+} from "./definitions.ts";
 const lines: Line[] = JSON.parse(Deno.readTextFileSync("./data/lines.json"));
+const schedules: Schedule[] = JSON.parse(
+  Deno.readTextFileSync("./data/schedules.json")
+);
 
 function splitLines(
   stations: DistrictCode[],
@@ -23,7 +32,32 @@ function splitLines(
   return result;
 }
 
-export function findRoutes(start: DistrictCode, end: DistrictCode): Route[] {
+function findNextSchedule(
+  lineCode: string,
+  startTime: string,
+  startStation: DistrictCode,
+  endStation: DistrictCode
+): Schedule | undefined {
+  return schedules.find((schedule) => {
+    if (schedule.lineCode !== lineCode) return false;
+
+    const startStop = schedule.stops.find(
+      (stop) => stop.station === startStation
+    );
+    const endStop = schedule.stops.find((stop) => stop.station === endStation);
+
+    if (!startStop || !endStop) return false;
+
+    // Check if this schedule's start time is after or equal to the requested time
+    return startStop.arrival >= startTime;
+  });
+}
+
+export function findRoutes(
+  start: DistrictCode,
+  end: DistrictCode,
+  time: string
+): Route[] {
   // Create a map of stations to their connected lines
   const stationMap = new Map<string, string[]>();
 
@@ -91,14 +125,62 @@ export function findRoutes(start: DistrictCode, end: DistrictCode): Route[] {
         return segments[0]; // Take the first segment's direction
       });
 
+      // Find schedules for each segment
+      let currentTime = time;
+      const segments = splitLines(current.stations, transferStations);
+      const lineSchedules = segments.map((segmentStations, index) => {
+        const lineCode = directionalLines[index];
+        const schedule = findNextSchedule(
+          lineCode,
+          currentTime,
+          segmentStations[0],
+          segmentStations[segmentStations.length - 1]
+        );
+
+        if (schedule) {
+          // Update currentTime for next segment
+          const lastStop = schedule.stops.find(
+            (stop) =>
+              stop.station === segmentStations[segmentStations.length - 1]
+          );
+          if (lastStop) {
+            currentTime = lastStop.arrival;
+          }
+
+          // Create a schedule segment with only the relevant stops
+          const scheduleSegment = {
+            id: schedule.id,
+            stops: schedule.stops
+              .filter((stop) => segmentStations.includes(stop.station))
+              .map((stop, index, array) => {
+                // If this is the last stop in the segment, remove departure time
+                if (index === array.length - 1) {
+                  return {
+                    station: stop.station,
+                    arrival: stop.arrival,
+                  } as ScheduleStop;
+                }
+                return stop as ScheduleStop;
+              }),
+          };
+
+          return {
+            name: lineCode,
+            segment: segmentStations,
+            schedule: scheduleSegment,
+          };
+        }
+
+        return {
+          name: lineCode,
+          segment: segmentStations,
+          schedule: undefined,
+        };
+      });
+
       const route: Route = {
         route: current.stations,
-        lines: splitLines(current.stations, transferStations).map(
-          (sectionStations, index) => ({
-            name: directionalLines[index],
-            segment: sectionStations,
-          })
-        ),
+        lines: lineSchedules,
         transfer: transferStations,
         stationsCount: current.stations.length,
         prices: {

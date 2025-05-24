@@ -12,10 +12,16 @@ export interface Stop {
   departure: string;
 }
 
+export interface ScheduleStop {
+  station: DistrictCode;
+  arrival: string;
+  departure?: string;
+}
+
 export interface Schedule {
   id: number;
   lineCode: string;
-  stops: Stop[];
+  stops: ScheduleStop[];
 }
 
 export interface Train {
@@ -64,6 +70,10 @@ export interface Route {
   lines: {
     name: string;
     segment: DistrictCode[];
+    schedule?: {
+      id: number;
+      stops: ScheduleStop[];
+    };
   }[];
   transfer: DistrictCode[];
   stationsCount: number;
