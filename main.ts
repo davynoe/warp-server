@@ -4,18 +4,65 @@ import {
   Line,
   Schedule,
   Train,
+  User,
 } from "./definitions.ts";
 import { findRoutes } from "./search_route.ts";
+import { crypto } from "https://deno.land/std@0.177.0/crypto/mod.ts";
+
 const pathname = (url: string) => new URL(url).pathname;
 
 // Add CORS headers
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
-Deno.serve({ port: 8000 }, (req) => {
+// Helper function to hash passwords
+async function hashPassword(password: string): Promise<string> {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+// Helper function to generate JWT token (in a real app, use a proper JWT library)
+function generateToken(user: User): string {
+  const payload = {
+    id: user.id,
+    username: user.username,
+    role: user.role,
+  };
+  return btoa(JSON.stringify(payload)); // This is a simple encoding, use proper JWT in production
+}
+
+// Helper function to verify JWT token
+function verifyToken(
+  token: string
+): { id: string; username: string; role: string } | null {
+  try {
+    return JSON.parse(atob(token));
+  } catch {
+    return null;
+  }
+}
+
+// Helper function to get users from file
+function getUsers(): User[] {
+  try {
+    return JSON.parse(Deno.readTextFileSync("./data/users.json"));
+  } catch {
+    return [];
+  }
+}
+
+// Helper function to save users to file
+function saveUsers(users: User[]) {
+  Deno.writeTextFileSync("./data/users.json", JSON.stringify(users, null, 2));
+}
+
+Deno.serve({ port: 8000 }, async (req) => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, {
@@ -31,6 +78,123 @@ Deno.serve({ port: 8000 }, (req) => {
     ...corsHeaders,
     "Content-Type": "application/json",
   };
+
+  // Authentication endpoints
+  if (req.method === "POST" && endpoint === "/register") {
+    const { username, email, password } = await req.json();
+
+    if (!username || !email || !password) {
+      return new Response(
+        JSON.stringify({ error: "Missing required fields" }),
+        {
+          status: 400,
+          headers: responseHeaders,
+        }
+      );
+    }
+
+    const users = getUsers();
+    if (users.some((u) => u.email === email || u.username === username)) {
+      return new Response(JSON.stringify({ error: "User already exists" }), {
+        status: 400,
+        headers: responseHeaders,
+      });
+    }
+
+    const newUser: User = {
+      id: crypto.randomUUID(),
+      username,
+      email,
+      password: await hashPassword(password),
+      bookedSeats: [],
+      createdAt: new Date().toISOString(),
+      lastLogin: new Date().toISOString(),
+      role: "user",
+    };
+
+    users.push(newUser);
+    saveUsers(users);
+
+    const token = generateToken(newUser);
+    return new Response(
+      JSON.stringify({ token, user: { ...newUser, password: undefined } }),
+      {
+        headers: responseHeaders,
+      }
+    );
+  }
+
+  if (req.method === "POST" && endpoint === "/login") {
+    const { username, password } = await req.json();
+
+    if (!username || !password) {
+      return new Response(
+        JSON.stringify({ error: "Missing username or password" }),
+        {
+          status: 400,
+          headers: responseHeaders,
+        }
+      );
+    }
+
+    const users = getUsers();
+    const user = users.find((u) => u.username === username);
+
+    if (!user || user.password !== (await hashPassword(password))) {
+      return new Response(JSON.stringify({ error: "Invalid credentials" }), {
+        status: 401,
+        headers: responseHeaders,
+      });
+    }
+
+    // Update last login
+    user.lastLogin = new Date().toISOString();
+    saveUsers(users);
+
+    const token = generateToken(user);
+    return new Response(
+      JSON.stringify({ token, user: { ...user, password: undefined } }),
+      {
+        headers: responseHeaders,
+      }
+    );
+  }
+
+  // Protected route example
+  if (req.method === "GET" && endpoint === "/me") {
+    const authHeader = req.headers.get("Authorization");
+    if (!authHeader?.startsWith("Bearer ")) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: responseHeaders,
+      });
+    }
+
+    const token = authHeader.split(" ")[1];
+    const payload = verifyToken(token);
+    if (!payload) {
+      return new Response(JSON.stringify({ error: "Invalid token" }), {
+        status: 401,
+        headers: responseHeaders,
+      });
+    }
+
+    const users = getUsers();
+    const user = users.find((u) => u.id === payload.id);
+    if (!user) {
+      return new Response(JSON.stringify({ error: "User not found" }), {
+        status: 404,
+        headers: responseHeaders,
+      });
+    }
+
+    return new Response(
+      JSON.stringify({ user: { ...user, password: undefined } }),
+      {
+        headers: responseHeaders,
+      }
+    );
+  }
 
   if (req.method === "GET" && endpoint === "/find-routes") {
     console.log("Received request to find routes");

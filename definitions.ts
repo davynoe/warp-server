@@ -116,3 +116,23 @@ export interface MergedRoute {
   };
   schedules: RouteSchedule[];
 }
+
+export interface BookedSeat {
+  trainName: string;
+  seatNumber: string;
+  class: "economy" | "firstClass";
+  journeyDate: string;
+  from: DistrictCode;
+  to: DistrictCode;
+}
+
+export interface User {
+  id: string;
+  username: string;
+  email: string;
+  password: string; // This will be hashed in practice
+  bookedSeats: BookedSeat[];
+  createdAt: string;
+  lastLogin: string;
+  role: "user" | "admin";
+}
