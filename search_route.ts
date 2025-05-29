@@ -6,7 +6,7 @@ import {
   MergedRoute,
   ScheduleSegment,
 } from "./definitions.ts";
-import { lines, schedules, trains } from "./db/mongodb.ts";
+import { lines, schedules, trains } from "./mongodb.ts";
 
 async function getData() {
   const [linesData, schedulesData, trainsData] = await Promise.all([
