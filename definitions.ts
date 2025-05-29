@@ -136,3 +136,27 @@ export interface User {
   lastLogin: string;
   role: "user" | "admin";
 }
+
+export interface TicketSegment {
+  line: string;
+  scheduleId: number;
+  from: DistrictCode;
+  to: DistrictCode;
+  departureTime: string;
+  arrivalTime: string;
+  seatNumber?: string;
+}
+
+export interface Ticket {
+  id: number;
+  userId: string;
+  scheduleId: number;
+  segments: TicketSegment[];
+  status: "active" | "cancelled" | "completed";
+  class: "economy" | "firstClass";
+  price: number;
+  createdAt: string;
+  journeyDate: string;
+  from: DistrictCode;
+  to: DistrictCode;
+}

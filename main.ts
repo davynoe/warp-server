@@ -1,21 +1,26 @@
-import { DistrictCode, Train, User } from "./definitions.ts";
+import { DistrictCode } from "./definitions.ts";
 import { findRoutes } from "./search_route.ts";
 import { crypto } from "https://deno.land/std@0.177.0/crypto/mod.ts";
 import {
-  users as usersCollection,
-  districts,
+  users,
   lines,
   trains,
   schedules,
-} from "./db/mongodb.ts";
+  tickets,
+  districts,
+  getNextTicketId,
+} from "./mongodb.ts";
+import { verifyToken, generateToken } from "./auth.ts";
+import type { User, Train, Ticket, TicketSegment } from "./definitions.ts";
 
 const pathname = (url: string) => new URL(url).pathname;
 
 // Add CORS headers
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Origin": "http://localhost:3000",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
+  "Access-Control-Allow-Credentials": "true",
 };
 
 // Helper function to hash passwords
@@ -27,31 +32,10 @@ async function hashPassword(password: string): Promise<string> {
   return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-// Helper function to generate JWT token (in a real app, use a proper JWT library)
-function generateToken(user: User): string {
-  const payload = {
-    id: user.id,
-    username: user.username,
-    role: user.role,
-  };
-  return btoa(JSON.stringify(payload)); // This is a simple encoding, use proper JWT in production
-}
-
-// Helper function to verify JWT token
-function verifyToken(
-  token: string
-): { id: string; username: string; role: "user" | "admin" } | null {
-  try {
-    return JSON.parse(atob(token));
-  } catch {
-    return null;
-  }
-}
-
 // Helper function to get users from MongoDB
 async function getUsers(): Promise<User[]> {
-  const users = await usersCollection.find({}).toArray();
-  return users.map((user) => ({
+  const usersList = await users.find({}).toArray();
+  return usersList.map((user) => ({
     id: user.id,
     username: user.username,
     email: user.email,
@@ -61,12 +45,6 @@ async function getUsers(): Promise<User[]> {
     lastLogin: user.lastLogin,
     role: user.role,
   }));
-}
-
-// Helper function to save users to MongoDB
-async function saveUsers(users: User[]) {
-  await usersCollection.deleteMany({});
-  await usersCollection.insertMany(users);
 }
 
 Deno.serve({ port: 8000 }, async (req) => {
@@ -121,7 +99,7 @@ Deno.serve({ port: 8000 }, async (req) => {
       role: "user",
     };
 
-    await usersCollection.insertOne(newUser);
+    await users.insertOne(newUser);
 
     const token = generateToken(newUser);
     return new Response(
@@ -133,11 +111,11 @@ Deno.serve({ port: 8000 }, async (req) => {
   }
 
   if (req.method === "POST" && endpoint === "/login") {
-    const { username, password } = await req.json();
+    const { username, email, password } = await req.json();
 
-    if (!username || !password) {
+    if (!password || (!username && !email)) {
       return new Response(
-        JSON.stringify({ error: "Missing username or password" }),
+        JSON.stringify({ error: "Missing username/email or password" }),
         {
           status: 400,
           headers: responseHeaders,
@@ -146,7 +124,9 @@ Deno.serve({ port: 8000 }, async (req) => {
     }
 
     const existingUsers = await getUsers();
-    const user = existingUsers.find((u) => u.username === username);
+    const user = existingUsers.find(
+      (u) => u.username === username || u.email === email
+    );
 
     if (!user || user.password !== (await hashPassword(password))) {
       return new Response(JSON.stringify({ error: "Invalid credentials" }), {
@@ -157,7 +137,7 @@ Deno.serve({ port: 8000 }, async (req) => {
 
     // Update last login
     user.lastLogin = new Date().toISOString();
-    await usersCollection.updateOne(
+    await users.updateOne(
       { id: user.id },
       { $set: { lastLogin: user.lastLogin } }
     );
@@ -277,20 +257,6 @@ Deno.serve({ port: 8000 }, async (req) => {
     return new Response(JSON.stringify(train, null, 2), {
       headers: responseHeaders,
     });
-  } else if (req.method === "GET" && endpoint.startsWith("/districts")) {
-    let code = pathname(req.url).split("/")[2];
-    if (!code) {
-      const allDistricts = await districts.find({}).toArray();
-      return new Response(JSON.stringify(allDistricts, null, 2), {
-        headers: responseHeaders,
-      });
-    }
-    code = code.toUpperCase() as DistrictCode;
-
-    const district = await districts.findOne({ code: code as DistrictCode });
-    return new Response(JSON.stringify(district, null, 2), {
-      headers: responseHeaders,
-    });
   } else if (req.method === "GET" && endpoint.startsWith("/lines")) {
     let code = pathname(req.url).split("/")[2];
     if (!code) {
@@ -303,6 +269,62 @@ Deno.serve({ port: 8000 }, async (req) => {
 
     const line = await lines.findOne({ code });
     return new Response(JSON.stringify(line, null, 2), {
+      headers: responseHeaders,
+    });
+  } else if (req.method === "GET" && endpoint.startsWith("/districts")) {
+    let code = pathname(req.url).split("/")[2];
+    if (!code) {
+      const allDistricts = await districts.find({}).toArray();
+      return new Response(JSON.stringify(allDistricts, null, 2), {
+        headers: responseHeaders,
+      });
+    }
+    code = code.toUpperCase();
+
+    // Validate if the code is a valid DistrictCode
+    const validCodes: DistrictCode[] = [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+    ];
+
+    if (!validCodes.includes(code as DistrictCode)) {
+      return new Response(JSON.stringify({ error: "Invalid district code" }), {
+        status: 400,
+        headers: responseHeaders,
+      });
+    }
+
+    const district = await districts.findOne({ code: code as DistrictCode });
+    if (!district) {
+      return new Response(JSON.stringify({ error: "District not found" }), {
+        status: 404,
+        headers: responseHeaders,
+      });
+    }
+    return new Response(JSON.stringify(district, null, 2), {
       headers: responseHeaders,
     });
   }
@@ -354,7 +376,7 @@ Deno.serve({ port: 8000 }, async (req) => {
       });
     }
 
-    const user = await usersCollection.findOne({ id: payload.id });
+    const user = await users.findOne({ id: payload.id });
     if (!user) {
       return new Response(JSON.stringify({ error: "User not found" }), {
         status: 404,
@@ -401,7 +423,7 @@ Deno.serve({ port: 8000 }, async (req) => {
     }
 
     const { username, email, currentPassword, newPassword } = await req.json();
-    const user = await usersCollection.findOne({ id: payload.id });
+    const user = await users.findOne({ id: payload.id });
 
     if (!user) {
       return new Response(JSON.stringify({ error: "User not found" }), {
@@ -435,7 +457,7 @@ Deno.serve({ port: 8000 }, async (req) => {
 
     // Check if new username or email is already taken
     if (username && username !== user.username) {
-      const existingUser = await usersCollection.findOne({ username });
+      const existingUser = await users.findOne({ username });
       if (existingUser) {
         return new Response(
           JSON.stringify({ error: "Username already taken" }),
@@ -448,7 +470,7 @@ Deno.serve({ port: 8000 }, async (req) => {
     }
 
     if (email && email !== user.email) {
-      const existingUser = await usersCollection.findOne({ email });
+      const existingUser = await users.findOne({ email });
       if (existingUser) {
         return new Response(JSON.stringify({ error: "Email already taken" }), {
           status: 400,
@@ -463,9 +485,9 @@ Deno.serve({ port: 8000 }, async (req) => {
     if (email) updateData.email = email;
     if (newPassword) updateData.password = await hashPassword(newPassword);
 
-    await usersCollection.updateOne({ id: user.id }, { $set: updateData });
+    await users.updateOne({ id: user.id }, { $set: updateData });
 
-    const updatedUser = await usersCollection.findOne({ id: user.id });
+    const updatedUser = await users.findOne({ id: user.id });
     if (!updatedUser) {
       return new Response(JSON.stringify({ error: "Failed to update user" }), {
         status: 500,
@@ -511,7 +533,7 @@ Deno.serve({ port: 8000 }, async (req) => {
       );
     }
 
-    const user = await usersCollection.findOne({ id: payload.id });
+    const user = await users.findOne({ id: payload.id });
     if (!user) {
       return new Response(JSON.stringify({ error: "User not found" }), {
         status: 404,
@@ -526,7 +548,7 @@ Deno.serve({ port: 8000 }, async (req) => {
       });
     }
 
-    await usersCollection.deleteOne({ id: user.id });
+    await users.deleteOne({ id: user.id });
 
     return new Response(
       JSON.stringify({ message: "Account deleted successfully" }),
@@ -534,6 +556,175 @@ Deno.serve({ port: 8000 }, async (req) => {
         headers: responseHeaders,
       }
     );
+  }
+
+  // Ticket booking endpoint
+  if (req.method === "POST" && endpoint === "/tickets") {
+    try {
+      const token = req.headers.get("Authorization")?.split(" ")[1];
+      if (!token) {
+        return new Response(JSON.stringify({ error: "Unauthorized" }), {
+          status: 401,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+
+      const payload = await verifyToken(token);
+      if (!payload) {
+        return new Response(JSON.stringify({ error: "Invalid token" }), {
+          status: 401,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+
+      const user = await users.findOne({ username: payload.username });
+      if (!user) {
+        return new Response(JSON.stringify({ error: "User not found" }), {
+          status: 404,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+
+      const { start, end, scheduleId, class: ticketClass } = await req.json();
+      if (!start || !end || !scheduleId || !ticketClass) {
+        return new Response(
+          JSON.stringify({ error: "Missing required fields" }),
+          {
+            status: 400,
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+      }
+
+      // Find routes to get schedule details
+      const routes = await findRoutes(start, end);
+      if (!routes || routes.length === 0) {
+        return new Response(JSON.stringify({ error: "No routes found" }), {
+          status: 404,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+
+      // Find the selected schedule
+      const selectedRoute = routes[0]; // Using first route for now
+      const selectedSchedule = selectedRoute.schedules.find(
+        (s) => s.id === scheduleId
+      );
+      if (!selectedSchedule) {
+        return new Response(JSON.stringify({ error: "Schedule not found" }), {
+          status: 404,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+
+      // Create ticket segments
+      const segments: TicketSegment[] = selectedSchedule.segments.map(
+        (segment) => ({
+          line: segment.line,
+          scheduleId: segment.scheduleId,
+          from: segment.stops[0].station,
+          to: segment.stops[segment.stops.length - 1].station,
+          departureTime: segment.stops[0].departure || segment.stops[0].arrival,
+          arrivalTime: segment.stops[segment.stops.length - 1].arrival,
+        })
+      );
+
+      // Calculate price based on class
+      const price =
+        selectedRoute.prices[ticketClass as "economy" | "firstClass"];
+
+      // Get next ticket ID
+      const ticketId = await getNextTicketId();
+
+      // Create ticket
+      const ticket: Ticket = {
+        id: ticketId,
+        userId: user.id,
+        scheduleId,
+        segments,
+        status: "active",
+        class: ticketClass,
+        price,
+        createdAt: new Date().toISOString(),
+        journeyDate: new Date().toISOString(), // You might want to make this configurable
+        from: start,
+        to: end,
+      };
+
+      // Save ticket to database
+      await tickets.insertOne(ticket);
+
+      // Add ticket to user's tickets
+      await users.updateOne({ id: user.id }, { $push: { tickets: ticket.id } });
+
+      // Return ticket with username
+      const ticketWithUsername = {
+        ...ticket,
+        username: user.username,
+      };
+
+      return new Response(JSON.stringify(ticketWithUsername), {
+        status: 201,
+        headers: { "Content-Type": "application/json" },
+      });
+    } catch (error) {
+      console.error("Error creating ticket:", error);
+      return new Response(
+        JSON.stringify({ error: "Failed to create ticket" }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+  }
+
+  // Get user tickets endpoint
+  if (req.method === "GET" && endpoint === "/tickets") {
+    try {
+      const token = req.headers.get("Authorization")?.split(" ")[1];
+      if (!token) {
+        return new Response(JSON.stringify({ error: "Unauthorized" }), {
+          status: 401,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+
+      const payload = await verifyToken(token);
+      if (!payload) {
+        return new Response(JSON.stringify({ error: "Invalid token" }), {
+          status: 401,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+
+      const user = await users.findOne({ username: payload.username });
+      if (!user) {
+        return new Response(JSON.stringify({ error: "User not found" }), {
+          status: 404,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+
+      // Get all tickets for the user
+      const userTickets = await tickets.find({ userId: user.id }).toArray();
+
+      // Add username to each ticket
+      const ticketsWithUsername = userTickets.map((ticket) => ({
+        ...ticket,
+        username: user.username,
+      }));
+
+      return new Response(JSON.stringify(ticketsWithUsername), {
+        headers: { "Content-Type": "application/json" },
+      });
+    } catch (error) {
+      console.error("Error getting tickets:", error);
+      return new Response(JSON.stringify({ error: "Failed to get tickets" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
   }
 
   return new Response("Not Found", {
