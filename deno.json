@@ -1,11 +1,13 @@
 {
   "tasks": {
-    "dev": "deno run --allow-read --allow-write --watch main.ts",
+    "dev": "deno run --allow-read --allow-write --allow-net --allow-env --watch main.ts",
     "schedule": "deno run --allow-read --allow-write schedule_generator.ts",
     "train": "deno run --allow-read --allow-write train_generator.ts",
-    "route": "deno run --allow-read --allow-write search_route.ts"
+    "route": "deno run --allow-read --allow-write search_route.ts",
+    "migrate": "deno run --allow-read --allow-net --allow-env scripts/migrate.ts"
   },
   "imports": {
-    "@std/assert": "jsr:@std/assert@1"
+    "@std/assert": "jsr:@std/assert@1",
+    "mongodb": "npm:mongodb@^6.16.0"
   }
 }

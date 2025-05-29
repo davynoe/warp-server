@@ -1,18 +1,25 @@
 import {
   DistrictCode,
-  Line,
   Route,
   Schedule,
   ScheduleStop,
-  Train,
   MergedRoute,
   ScheduleSegment,
 } from "./definitions.ts";
-const lines: Line[] = JSON.parse(Deno.readTextFileSync("./data/lines.json"));
-const schedules: Schedule[] = JSON.parse(
-  Deno.readTextFileSync("./data/schedules.json")
-);
-const trains: Train[] = JSON.parse(Deno.readTextFileSync("./data/trains.json"));
+import { lines, schedules, trains } from "./db/mongodb.ts";
+
+async function getData() {
+  const [linesData, schedulesData, trainsData] = await Promise.all([
+    lines.find({}).toArray(),
+    schedules.find({}).toArray(),
+    trains.find({}).toArray(),
+  ]);
+  return {
+    linesData,
+    schedulesData,
+    trainsData,
+  };
+}
 
 function splitLines(
   stations: DistrictCode[],
@@ -41,6 +48,7 @@ function findNextSchedule(
   startTime: string,
   startStation: DistrictCode,
   endStation: DistrictCode,
+  schedules: Schedule[],
   startFromScheduleId?: number
 ): Schedule | undefined {
   return schedules.find((schedule) => {
@@ -59,15 +67,17 @@ function findNextSchedule(
   });
 }
 
-export function findRoutes(
+export async function findRoutes(
   start: DistrictCode,
   end: DistrictCode
-): MergedRoute[] {
+): Promise<MergedRoute[]> {
+  const { linesData, schedulesData, trainsData } = await getData();
+
   // Create a map of stations to their connected lines
   const stationMap = new Map<string, string[]>();
 
   // Build the station map
-  for (const line of lines) {
+  for (const line of linesData) {
     for (const station of line.stations) {
       if (!stationMap.has(station)) {
         stationMap.set(station, []);
@@ -109,7 +119,7 @@ export function findRoutes(
 
       // Determine direction for each line segment
       const directionalLines = distinctLines.map((lineCode) => {
-        const line = lines.find((l) => l.code === lineCode)!;
+        const line = linesData.find((l) => l.code === lineCode)!;
         // Find all segments of this line in the route
         const segments = [];
         for (let i = 0; i < checkPoints.length - 1; i++) {
@@ -142,6 +152,7 @@ export function findRoutes(
             currentTime,
             segmentStations[0],
             segmentStations[segmentStations.length - 1],
+            schedulesData,
             index === 0 ? currentScheduleId : undefined
           );
 
@@ -156,7 +167,7 @@ export function findRoutes(
             }
 
             // Find the train for this line
-            const train = trains.find((t) => t.line === lineCode);
+            const train = trainsData.find((t) => t.line === lineCode);
 
             // Create a schedule segment with only the relevant stops
             const scheduleSegment = {
@@ -185,7 +196,7 @@ export function findRoutes(
 
           return {
             name: lineCode,
-            trainName: trains.find((t) => t.line === lineCode)?.name,
+            trainName: trainsData.find((t) => t.line === lineCode)?.name,
             segment: segmentStations,
             schedule: undefined,
           };
@@ -206,81 +217,66 @@ export function findRoutes(
             firstClass: 400,
           },
         };
+
         routes.push(route);
-
-        // Get the next schedule ID for the first segment
-        const firstSegmentSchedule = lineSchedules[0].schedule;
-        if (!firstSegmentSchedule) break;
-        currentScheduleId = firstSegmentSchedule.id + 1;
+        currentScheduleId++;
       }
-
-      continue;
     }
 
-    if (visited.has(currentStation)) continue;
-    visited.add(currentStation);
-
-    // Get all lines passing through current station
-    const stationLines = stationMap.get(currentStation) || [];
-
-    for (const lineCode of stationLines) {
-      const line = lines.find((l) => l.code === lineCode)!;
+    // Add next stations to queue
+    const connectedLines = stationMap.get(currentStation) || [];
+    for (const lineCode of connectedLines) {
+      const line = linesData.find((l) => l.code === lineCode)!;
       const stationIndex = line.stations.indexOf(currentStation);
 
-      // Check stations before and after current station
-      const adjacentStations = [
-        line.stations[stationIndex - 1],
-        line.stations[stationIndex + 1],
-      ].filter((s) => s && !current.stations.includes(s));
+      // Check both directions
+      for (const direction of [-1, 1]) {
+        const nextIndex = stationIndex + direction;
+        if (nextIndex >= 0 && nextIndex < line.stations.length) {
+          const nextStation = line.stations[nextIndex];
+          const routeKey = `${currentStation}-${nextStation}`;
 
-      for (const nextStation of adjacentStations) {
-        queue.push({
-          stations: [...current.stations, nextStation],
-          lines: [...current.lines, lineCode],
-        });
+          if (!visited.has(routeKey)) {
+            visited.add(routeKey);
+            queue.push({
+              stations: [...current.stations, nextStation],
+              lines: [...current.lines, lineCode],
+            });
+          }
+        }
       }
     }
   }
 
-  // Merge routes with the same path
+  // Merge routes with the same stations but different schedules
   const mergedRoutes = new Map<string, MergedRoute>();
-
   for (const route of routes) {
-    const routeKey = route.route.join(",");
-    if (!mergedRoutes.has(routeKey)) {
-      // Create the base route structure
-      mergedRoutes.set(routeKey, {
+    const key = route.route.join("-");
+    if (!mergedRoutes.has(key)) {
+      mergedRoutes.set(key, {
         route: route.route,
-        lines: route.lines.map((line) => ({
-          name: line.name,
-          trainName: line.trainName,
-          segment: line.segment,
-        })),
+        lines: route.lines,
         transfer: route.transfer,
         stationsCount: route.stationsCount,
         prices: route.prices,
         schedules: [],
       });
+    } else {
+      const existing = mergedRoutes.get(key)!;
+      const scheduleSegments: ScheduleSegment[] = route.lines
+        .filter((line) => line.schedule)
+        .map((line) => ({
+          line: line.name,
+          scheduleId: line.schedule!.id,
+          stops: line.schedule!.stops,
+        }));
+
+      existing.schedules.push({
+        id: existing.schedules.length + 1,
+        segments: scheduleSegments,
+      });
     }
-
-    // Add the schedule to the merged route
-    const mergedRoute = mergedRoutes.get(routeKey)!;
-    const scheduleSegments: ScheduleSegment[] = route.lines
-      .filter((line) => line.schedule)
-      .map((line) => ({
-        line: line.name,
-        scheduleId: line.schedule!.id,
-        stops: line.schedule!.stops,
-      }));
-
-    mergedRoute.schedules.push({
-      id: mergedRoute.schedules.length + 1,
-      segments: scheduleSegments,
-    });
   }
 
-  console.log(
-    `Found ${mergedRoutes.size} unique routes with ${routes.length} total schedules`
-  );
   return Array.from(mergedRoutes.values());
 }
